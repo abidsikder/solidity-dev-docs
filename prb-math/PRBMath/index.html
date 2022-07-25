@@ -1,0 +1,544 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+      <link rel="shortcut icon" href="../img/favicon.ico" />
+    <title>PRBMath - PRBMath Docs</title>
+    <link rel="stylesheet" href="../css/theme.css" />
+    <link rel="stylesheet" href="../css/theme_extra.css" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.5.0/styles/github.min.css" />
+    
+      <script>
+        // Current page data
+        var mkdocs_page_name = "PRBMath";
+        var mkdocs_page_input_path = "PRBMath.md";
+        var mkdocs_page_url = null;
+      </script>
+    
+    <script src="../js/jquery-3.6.0.min.js" defer></script>
+    <!--[if lt IE 9]>
+      <script src="../js/html5shiv.min.js"></script>
+    <![endif]-->
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.5.0/highlight.min.js"></script>
+      <script>hljs.initHighlightingOnLoad();</script> 
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+    <div class="wy-side-scroll">
+      <div class="wy-side-nav-search">
+          <a href=".." class="icon icon-home"> PRBMath Docs
+        </a><div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../search.html" method="get">
+      <input type="text" name="q" placeholder="Search docs" title="Type search term here" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul class="current">
+                <li class="toctree-l1 current"><a class="reference internal current" href="./">PRBMath</a>
+    <ul class="current">
+    </ul>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../PRBMathSD59x18/">PRBMathSD59x18</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../PRBMathSD59x18Typed/">PRBMathSD59x18Typed</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../PRBMathUD60x18/">PRBMathUD60x18</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../PRBMathUD60x18Typed/">PRBMathUD60x18Typed</a>
+                </li>
+              </ul>
+      </div>
+    </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+      <nav class="wy-nav-top" role="navigation" aria-label="Mobile navigation menu">
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="..">PRBMath Docs</a>
+        
+      </nav>
+      <div class="wy-nav-content">
+        <div class="rst-content"><div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href=".." class="icon icon-home" alt="Docs"></a> &raquo;</li>
+      <li>PRBMath</li>
+    <li class="wy-breadcrumbs-aside">
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+            <div class="section" itemprop="articleBody">
+              
+                <h2 id="prbmath__muldivfixedpointoverflow">PRBMath__MulDivFixedPointOverflow</h2>
+<pre><code class="language-solidity">error PRBMath__MulDivFixedPointOverflow(uint256 prod1)
+</code></pre>
+<p>Emitted when the result overflows uint256.</p>
+<h2 id="prbmath__muldivoverflow">PRBMath__MulDivOverflow</h2>
+<pre><code class="language-solidity">error PRBMath__MulDivOverflow(uint256 prod1, uint256 denominator)
+</code></pre>
+<p>Emitted when the result overflows uint256.</p>
+<h2 id="prbmath__muldivsignedinputtoosmall">PRBMath__MulDivSignedInputTooSmall</h2>
+<pre><code class="language-solidity">error PRBMath__MulDivSignedInputTooSmall()
+</code></pre>
+<p>Emitted when one of the inputs is type(int256).min.</p>
+<h2 id="prbmath__muldivsignedoverflow">PRBMath__MulDivSignedOverflow</h2>
+<pre><code class="language-solidity">error PRBMath__MulDivSignedOverflow(uint256 rAbs)
+</code></pre>
+<p>Emitted when the intermediary absolute result overflows int256.</p>
+<h2 id="prbmathsd59x18__absinputtoosmall">PRBMathSD59x18__AbsInputTooSmall</h2>
+<pre><code class="language-solidity">error PRBMathSD59x18__AbsInputTooSmall()
+</code></pre>
+<p>Emitted when the input is MIN_SD59x18.</p>
+<h2 id="prbmathsd59x18__ceiloverflow">PRBMathSD59x18__CeilOverflow</h2>
+<pre><code class="language-solidity">error PRBMathSD59x18__CeilOverflow(int256 x)
+</code></pre>
+<p>Emitted when ceiling a number overflows SD59x18.</p>
+<h2 id="prbmathsd59x18__divinputtoosmall">PRBMathSD59x18__DivInputTooSmall</h2>
+<pre><code class="language-solidity">error PRBMathSD59x18__DivInputTooSmall()
+</code></pre>
+<p>Emitted when one of the inputs is MIN_SD59x18.</p>
+<h2 id="prbmathsd59x18__divoverflow">PRBMathSD59x18__DivOverflow</h2>
+<pre><code class="language-solidity">error PRBMathSD59x18__DivOverflow(uint256 rAbs)
+</code></pre>
+<p>Emitted when one of the intermediary unsigned results overflows SD59x18.</p>
+<h2 id="prbmathsd59x18__expinputtoobig">PRBMathSD59x18__ExpInputTooBig</h2>
+<pre><code class="language-solidity">error PRBMathSD59x18__ExpInputTooBig(int256 x)
+</code></pre>
+<p>Emitted when the input is greater than 133.084258667509499441.</p>
+<h2 id="prbmathsd59x18__exp2inputtoobig">PRBMathSD59x18__Exp2InputTooBig</h2>
+<pre><code class="language-solidity">error PRBMathSD59x18__Exp2InputTooBig(int256 x)
+</code></pre>
+<p>Emitted when the input is greater than 192.</p>
+<h2 id="prbmathsd59x18__floorunderflow">PRBMathSD59x18__FloorUnderflow</h2>
+<pre><code class="language-solidity">error PRBMathSD59x18__FloorUnderflow(int256 x)
+</code></pre>
+<p>Emitted when flooring a number underflows SD59x18.</p>
+<h2 id="prbmathsd59x18__fromintoverflow">PRBMathSD59x18__FromIntOverflow</h2>
+<pre><code class="language-solidity">error PRBMathSD59x18__FromIntOverflow(int256 x)
+</code></pre>
+<p>Emitted when converting a basic integer to the fixed-point format overflows SD59x18.</p>
+<h2 id="prbmathsd59x18__fromintunderflow">PRBMathSD59x18__FromIntUnderflow</h2>
+<pre><code class="language-solidity">error PRBMathSD59x18__FromIntUnderflow(int256 x)
+</code></pre>
+<p>Emitted when converting a basic integer to the fixed-point format underflows SD59x18.</p>
+<h2 id="prbmathsd59x18__gmnegativeproduct">PRBMathSD59x18__GmNegativeProduct</h2>
+<pre><code class="language-solidity">error PRBMathSD59x18__GmNegativeProduct(int256 x, int256 y)
+</code></pre>
+<p>Emitted when the product of the inputs is negative.</p>
+<h2 id="prbmathsd59x18__gmoverflow">PRBMathSD59x18__GmOverflow</h2>
+<pre><code class="language-solidity">error PRBMathSD59x18__GmOverflow(int256 x, int256 y)
+</code></pre>
+<p>Emitted when multiplying the inputs overflows SD59x18.</p>
+<h2 id="prbmathsd59x18__loginputtoosmall">PRBMathSD59x18__LogInputTooSmall</h2>
+<pre><code class="language-solidity">error PRBMathSD59x18__LogInputTooSmall(int256 x)
+</code></pre>
+<p>Emitted when the input is less than or equal to zero.</p>
+<h2 id="prbmathsd59x18__mulinputtoosmall">PRBMathSD59x18__MulInputTooSmall</h2>
+<pre><code class="language-solidity">error PRBMathSD59x18__MulInputTooSmall()
+</code></pre>
+<p>Emitted when one of the inputs is MIN_SD59x18.</p>
+<h2 id="prbmathsd59x18__muloverflow">PRBMathSD59x18__MulOverflow</h2>
+<pre><code class="language-solidity">error PRBMathSD59x18__MulOverflow(uint256 rAbs)
+</code></pre>
+<p>Emitted when the intermediary absolute result overflows SD59x18.</p>
+<h2 id="prbmathsd59x18__powuoverflow">PRBMathSD59x18__PowuOverflow</h2>
+<pre><code class="language-solidity">error PRBMathSD59x18__PowuOverflow(uint256 rAbs)
+</code></pre>
+<p>Emitted when the intermediary absolute result overflows SD59x18.</p>
+<h2 id="prbmathsd59x18__sqrtnegativeinput">PRBMathSD59x18__SqrtNegativeInput</h2>
+<pre><code class="language-solidity">error PRBMathSD59x18__SqrtNegativeInput(int256 x)
+</code></pre>
+<p>Emitted when the input is negative.</p>
+<h2 id="prbmathsd59x18__sqrtoverflow">PRBMathSD59x18__SqrtOverflow</h2>
+<pre><code class="language-solidity">error PRBMathSD59x18__SqrtOverflow(int256 x)
+</code></pre>
+<p>Emitted when the calculating the square root overflows SD59x18.</p>
+<h2 id="prbmathud60x18__addoverflow">PRBMathUD60x18__AddOverflow</h2>
+<pre><code class="language-solidity">error PRBMathUD60x18__AddOverflow(uint256 x, uint256 y)
+</code></pre>
+<p>Emitted when addition overflows UD60x18.</p>
+<h2 id="prbmathud60x18__ceiloverflow">PRBMathUD60x18__CeilOverflow</h2>
+<pre><code class="language-solidity">error PRBMathUD60x18__CeilOverflow(uint256 x)
+</code></pre>
+<p>Emitted when ceiling a number overflows UD60x18.</p>
+<h2 id="prbmathud60x18__expinputtoobig">PRBMathUD60x18__ExpInputTooBig</h2>
+<pre><code class="language-solidity">error PRBMathUD60x18__ExpInputTooBig(uint256 x)
+</code></pre>
+<p>Emitted when the input is greater than 133.084258667509499441.</p>
+<h2 id="prbmathud60x18__exp2inputtoobig">PRBMathUD60x18__Exp2InputTooBig</h2>
+<pre><code class="language-solidity">error PRBMathUD60x18__Exp2InputTooBig(uint256 x)
+</code></pre>
+<p>Emitted when the input is greater than 192.</p>
+<h2 id="prbmathud60x18__fromuintoverflow">PRBMathUD60x18__FromUintOverflow</h2>
+<pre><code class="language-solidity">error PRBMathUD60x18__FromUintOverflow(uint256 x)
+</code></pre>
+<p>Emitted when converting a basic integer to the fixed-point format format overflows UD60x18.</p>
+<h2 id="prbmathud60x18__gmoverflow">PRBMathUD60x18__GmOverflow</h2>
+<pre><code class="language-solidity">error PRBMathUD60x18__GmOverflow(uint256 x, uint256 y)
+</code></pre>
+<p>Emitted when multiplying the inputs overflows UD60x18.</p>
+<h2 id="prbmathud60x18__loginputtoosmall">PRBMathUD60x18__LogInputTooSmall</h2>
+<pre><code class="language-solidity">error PRBMathUD60x18__LogInputTooSmall(uint256 x)
+</code></pre>
+<p>Emitted when the input is less than 1.</p>
+<h2 id="prbmathud60x18__sqrtoverflow">PRBMathUD60x18__SqrtOverflow</h2>
+<pre><code class="language-solidity">error PRBMathUD60x18__SqrtOverflow(uint256 x)
+</code></pre>
+<p>Emitted when the calculating the square root overflows UD60x18.</p>
+<h2 id="prbmathud60x18__subunderflow">PRBMathUD60x18__SubUnderflow</h2>
+<pre><code class="language-solidity">error PRBMathUD60x18__SubUnderflow(uint256 x, uint256 y)
+</code></pre>
+<p>Emitted when subtraction underflows UD60x18.</p>
+<h2 id="prbmath">PRBMath</h2>
+<p><em>Common mathematical functions used in both PRBMathSD59x18 and PRBMathUD60x18. Note that this shared library
+does not always assume the signed 59.18-decimal fixed-point or the unsigned 60.18-decimal fixed-point
+representation. When it does not, it is explicitly mentioned in the NatSpec documentation.</em></p>
+<h3 id="sd59x18">SD59x18</h3>
+<pre><code class="language-solidity">struct SD59x18 {
+  int256 value;
+}
+</code></pre>
+<h3 id="ud60x18">UD60x18</h3>
+<pre><code class="language-solidity">struct UD60x18 {
+  uint256 value;
+}
+</code></pre>
+<h3 id="scale">SCALE</h3>
+<pre><code class="language-solidity">uint256 SCALE
+</code></pre>
+<p><em>How many trailing decimals can be represented.</em></p>
+<h3 id="scale_lpotd">SCALE_LPOTD</h3>
+<pre><code class="language-solidity">uint256 SCALE_LPOTD
+</code></pre>
+<p><em>Largest power of two divisor of SCALE.</em></p>
+<h3 id="scale_inverse">SCALE_INVERSE</h3>
+<pre><code class="language-solidity">uint256 SCALE_INVERSE
+</code></pre>
+<p><em>SCALE inverted mod 2^256.</em></p>
+<h3 id="exp2">exp2</h3>
+<pre><code class="language-solidity">function exp2(uint256 x) internal pure returns (uint256 result)
+</code></pre>
+<p>Calculates the binary exponent of x using the binary fraction method.</p>
+<p><em>Has to use 192.64-bit fixed-point numbers.
+See https://ethereum.stackexchange.com/a/96594/24693.</em></p>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>x</td>
+<td>uint256</td>
+<td>The exponent as an unsigned 192.64-bit fixed-point number.</td>
+</tr>
+</tbody>
+</table>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>result</td>
+<td>uint256</td>
+<td>The result as an unsigned 60.18-decimal fixed-point number.</td>
+</tr>
+</tbody>
+</table>
+<h3 id="mostsignificantbit">mostSignificantBit</h3>
+<pre><code class="language-solidity">function mostSignificantBit(uint256 x) internal pure returns (uint256 msb)
+</code></pre>
+<p>Finds the zero-based index of the first one in the binary representation of x.</p>
+<p><em>See the note on msb in the "Find First Set" Wikipedia article https://en.wikipedia.org/wiki/Find_first_set</em></p>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>x</td>
+<td>uint256</td>
+<td>The uint256 number for which to find the index of the most significant bit.</td>
+</tr>
+</tbody>
+</table>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>msb</td>
+<td>uint256</td>
+<td>The index of the most significant bit as an uint256.</td>
+</tr>
+</tbody>
+</table>
+<h3 id="muldiv">mulDiv</h3>
+<pre><code class="language-solidity">function mulDiv(uint256 x, uint256 y, uint256 denominator) internal pure returns (uint256 result)
+</code></pre>
+<p>Calculates floor(x*y÷denominator) with full precision.</p>
+<p>_Credit to Remco Bloemen under MIT license https://xn--2-umb.com/21/muldiv.</p>
+<p>Requirements:
+- The denominator cannot be zero.
+- The result must fit within uint256.</p>
+<p>Caveats:
+- This function does not work with fixed-point numbers._</p>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>x</td>
+<td>uint256</td>
+<td>The multiplicand as an uint256.</td>
+</tr>
+<tr>
+<td>y</td>
+<td>uint256</td>
+<td>The multiplier as an uint256.</td>
+</tr>
+<tr>
+<td>denominator</td>
+<td>uint256</td>
+<td>The divisor as an uint256.</td>
+</tr>
+</tbody>
+</table>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>result</td>
+<td>uint256</td>
+<td>The result as an uint256.</td>
+</tr>
+</tbody>
+</table>
+<h3 id="muldivfixedpoint">mulDivFixedPoint</h3>
+<pre><code class="language-solidity">function mulDivFixedPoint(uint256 x, uint256 y) internal pure returns (uint256 result)
+</code></pre>
+<p>Calculates floor(x*y÷1e18) with full precision.</p>
+<p>_Variant of "mulDiv" with constant folding, i.e. in which the denominator is always 1e18. Before returning the
+final result, we add 1 if (x * y) % SCALE &gt;= HALF_SCALE. Without this, 6.6e-19 would be truncated to 0 instead of
+being rounded to 1e-18.  See "Listing 6" and text above it at https://accu.org/index.php/journals/1717.</p>
+<p>Requirements:
+- The result must fit within uint256.</p>
+<p>Caveats:
+- The body is purposely left uncommented; see the NatSpec comments in "PRBMath.mulDiv" to understand how this works.
+- It is assumed that the result can never be type(uint256).max when x and y solve the following two equations:
+    1. x * y = type(uint256).max * SCALE
+    2. (x * y) % SCALE &gt;= SCALE / 2_</p>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>x</td>
+<td>uint256</td>
+<td>The multiplicand as an unsigned 60.18-decimal fixed-point number.</td>
+</tr>
+<tr>
+<td>y</td>
+<td>uint256</td>
+<td>The multiplier as an unsigned 60.18-decimal fixed-point number.</td>
+</tr>
+</tbody>
+</table>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>result</td>
+<td>uint256</td>
+<td>The result as an unsigned 60.18-decimal fixed-point number.</td>
+</tr>
+</tbody>
+</table>
+<h3 id="muldivsigned">mulDivSigned</h3>
+<pre><code class="language-solidity">function mulDivSigned(int256 x, int256 y, int256 denominator) internal pure returns (int256 result)
+</code></pre>
+<p>Calculates floor(x*y÷denominator) with full precision.</p>
+<p>_An extension of "mulDiv" for signed numbers. Works by computing the signs and the absolute values separately.</p>
+<p>Requirements:
+- None of the inputs can be type(int256).min.
+- The result must fit within int256._</p>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>x</td>
+<td>int256</td>
+<td>The multiplicand as an int256.</td>
+</tr>
+<tr>
+<td>y</td>
+<td>int256</td>
+<td>The multiplier as an int256.</td>
+</tr>
+<tr>
+<td>denominator</td>
+<td>int256</td>
+<td>The divisor as an int256.</td>
+</tr>
+</tbody>
+</table>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>result</td>
+<td>int256</td>
+<td>The result as an int256.</td>
+</tr>
+</tbody>
+</table>
+<h3 id="sqrt">sqrt</h3>
+<pre><code class="language-solidity">function sqrt(uint256 x) internal pure returns (uint256 result)
+</code></pre>
+<p>Calculates the square root of x, rounding down.</p>
+<p>_Uses the Babylonian method https://en.wikipedia.org/wiki/Methods_of_computing_square_roots#Babylonian_method.</p>
+<p>Caveats:
+- This function does not work with fixed-point numbers._</p>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>x</td>
+<td>uint256</td>
+<td>The uint256 number for which to calculate the square root.</td>
+</tr>
+</tbody>
+</table>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>result</td>
+<td>uint256</td>
+<td>The result as an uint256.</td>
+</tr>
+</tbody>
+</table>
+              
+            </div>
+          </div><footer>
+    <div class="rst-footer-buttons" role="navigation" aria-label="Footer Navigation">
+        <a href="../PRBMathSD59x18/" class="btn btn-neutral float-right" title="PRBMathSD59x18">Next <span class="icon icon-circle-arrow-right"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+  </div>
+
+  Built with <a href="https://www.mkdocs.org/">MkDocs</a> using a <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+          
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" aria-label="Versions">
+  <span class="rst-current-version" data-toggle="rst-current-version">
+    
+    
+    
+      <span><a href="../PRBMathSD59x18/" style="color: #fcfcfc">Next &raquo;</a></span>
+    
+  </span>
+</div>
+    <script>var base_url = '..';</script>
+    <script src="../js/theme_extra.js" defer></script>
+    <script src="../js/theme.js" defer></script>
+      <script src="../search/main.js" defer></script>
+    <script defer>
+        window.onload = function () {
+            SphinxRtdTheme.Navigation.enable(true);
+        };
+    </script>
+
+</body>
+</html>
