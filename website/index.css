@@ -1,0 +1,14 @@
+body {
+  background-color: black;
+  color: white;
+  font-family: sans-serif;
+}
+
+h1 {
+  font-size: 3rem;
+}
+
+a, a:visited, a:hover, a:active {
+  font-size: 2rem;
+  color: inherit;
+}
