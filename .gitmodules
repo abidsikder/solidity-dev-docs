@@ -1,0 +1,3 @@
+[submodule "projects/prb-math"]
+	path = projects/prb-math
+	url = https://github.com/abidsikder/prb-math.git
