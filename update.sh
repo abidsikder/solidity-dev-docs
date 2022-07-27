@@ -13,6 +13,11 @@ for PROJECT in ./*
 do
   cd $PROJECT
   echo "Working on $PROJECT"
+  if test -d "node_modules"; then
+    :
+  else
+    yarn install
+  fi
   PROJECT_DIR=$(pwd)
   (cd $PROJECT_DIR; ./docs.sh)
   cp -r docs-site/site ../../website
@@ -20,5 +25,5 @@ do
   NEW_NAME=$(basename $PROJECT)
   rm -r $NEW_NAME #removes old project
   mv site $NEW_NAME
-  cd ..
+  cd ../projects
 done

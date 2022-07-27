@@ -1,0 +1,259 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+      <link rel="shortcut icon" href="../img/favicon.ico" />
+    <title>Spatial - Spatial and Trigonometry Docs</title>
+    <link rel="stylesheet" href="../css/theme.css" />
+    <link rel="stylesheet" href="../css/theme_extra.css" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.5.0/styles/github.min.css" />
+    
+      <script>
+        // Current page data
+        var mkdocs_page_name = "Spatial";
+        var mkdocs_page_input_path = "Spatial.md";
+        var mkdocs_page_url = null;
+      </script>
+    
+    <script src="../js/jquery-3.6.0.min.js" defer></script>
+    <!--[if lt IE 9]>
+      <script src="../js/html5shiv.min.js"></script>
+    <![endif]-->
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.5.0/highlight.min.js"></script>
+      <script>hljs.initHighlightingOnLoad();</script> 
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+    <div class="wy-side-scroll">
+      <div class="wy-side-nav-search">
+          <a href=".." class="icon icon-home"> Spatial and Trigonometry Docs
+        </a><div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../search.html" method="get">
+      <input type="text" name="q" placeholder="Search docs" title="Type search term here" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul class="current">
+                <li class="toctree-l1 current"><a class="reference internal current" href="./">Spatial</a>
+    <ul class="current">
+    <li class="toctree-l2"><a class="reference internal" href="#earthradius">earthRadius</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#piscaled">piScaled</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#sindegrees">sinDegrees</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#sinnanodegrees">sinNanodegrees</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#cosdegrees">cosDegrees</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#cosnanodegrees">cosNanodegrees</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#ispolygon">isPolygon</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#isline">isLine</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#sqrt">sqrt</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#degreestonanoradians">degreesToNanoradians</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#nanodegreestonanoradians">nanodegreesToNanoradians</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#nanoradianstodegrees">nanoradiansToDegrees</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#earthnanoradianstonanometers">earthNanoradiansToNanometers</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#earthnanodegreestonanometers">earthNanodegreesToNanometers</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#distance">distance</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#area">area</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#centroid">centroid</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#boundingbox">boundingBox</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#length">length</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#perimeter">perimeter</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#distancebetweenazimuthalequidistantprojectedpoints">distanceBetweenAzimuthalEquidistantProjectedPoints</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#bearingfromazimuthalequidistantprojectedpoints">bearingFromAzimuthalEquidistantProjectedPoints</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#boundingboxbuffer">boundingBoxBuffer</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#pointinbbox">pointInBbox</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#pointinpolygon">pointInPolygon</a>
+    </li>
+    </ul>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../Trigonometry/">Trigonometry</a>
+                </li>
+              </ul>
+      </div>
+    </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+      <nav class="wy-nav-top" role="navigation" aria-label="Mobile navigation menu">
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="..">Spatial and Trigonometry Docs</a>
+        
+      </nav>
+      <div class="wy-nav-content">
+        <div class="rst-content"><div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href=".." class="icon icon-home" alt="Docs"></a> &raquo;</li>
+      <li>Spatial</li>
+    <li class="wy-breadcrumbs-aside">
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+            <div class="section" itemprop="articleBody">
+              
+                <h2 id="spatial">Spatial</h2>
+<p>This library is intended to give Ethereum developers access to spatial functions to calculate
+    geometric values and topologicial relationships on the EVM. It is a translation of Turf.js,
+    a geospatial analysis library in Javascript. http://turfjs.org/
+    Code first developed by John IV (johnx25bd, Founder at Astral) at ETHParis 2019.</p>
+<h3 id="earthradius">earthRadius</h3>
+<pre><code class="language-solidity">uint256 earthRadius
+</code></pre>
+<p>in nanometers,</p>
+<h3 id="piscaled">piScaled</h3>
+<pre><code class="language-solidity">uint256 piScaled
+</code></pre>
+<p>approx ... will affect precision</p>
+<h3 id="sindegrees">sinDegrees</h3>
+<pre><code class="language-solidity">function sinDegrees(uint256 _degrees) public pure returns (int256)
+</code></pre>
+<h3 id="sinnanodegrees">sinNanodegrees</h3>
+<pre><code class="language-solidity">function sinNanodegrees(uint256 _nanodegrees) public pure returns (int256)
+</code></pre>
+<h3 id="cosdegrees">cosDegrees</h3>
+<pre><code class="language-solidity">function cosDegrees(uint256 _degrees) public pure returns (int256)
+</code></pre>
+<h3 id="cosnanodegrees">cosNanodegrees</h3>
+<pre><code class="language-solidity">function cosNanodegrees(uint256 _nanodegrees) public pure returns (int256)
+</code></pre>
+<h3 id="ispolygon">isPolygon</h3>
+<pre><code class="language-solidity">function isPolygon(int256[2][] _coordinates) public pure returns (bool)
+</code></pre>
+<p>Checks to make sure first and last coordinates are the same. Otherwise it is a linestring.</p>
+<h3 id="isline">isLine</h3>
+<pre><code class="language-solidity">function isLine(int256[2][] _coordinates) public pure returns (bool)
+</code></pre>
+<h3 id="sqrt">sqrt</h3>
+<pre><code class="language-solidity">function sqrt(int256 _x) public pure returns (uint256 y_)
+</code></pre>
+<p>Babylonian method of finding square root,
+         From https://ethereum.stackexchange.com/questions/2910/can-i-square-root-in-solidity</p>
+<h3 id="degreestonanoradians">degreesToNanoradians</h3>
+<pre><code class="language-solidity">function degreesToNanoradians(uint256 _degrees) public pure returns (uint256 radians_)
+</code></pre>
+<h3 id="nanodegreestonanoradians">nanodegreesToNanoradians</h3>
+<pre><code class="language-solidity">function nanodegreesToNanoradians(uint256 _nanodegrees) public pure returns (uint256 radians_)
+</code></pre>
+<h3 id="nanoradianstodegrees">nanoradiansToDegrees</h3>
+<pre><code class="language-solidity">function nanoradiansToDegrees(uint256 _nanoradians) public pure returns (uint256 degrees_)
+</code></pre>
+<h3 id="earthnanoradianstonanometers">earthNanoradiansToNanometers</h3>
+<pre><code class="language-solidity">function earthNanoradiansToNanometers(uint256 _nanoradians) public pure returns (uint256 nanometers_)
+</code></pre>
+<h3 id="earthnanodegreestonanometers">earthNanodegreesToNanometers</h3>
+<pre><code class="language-solidity">function earthNanodegreesToNanometers(uint256 _nanodegrees) public pure returns (uint256 nanometers_)
+</code></pre>
+<h3 id="distance">distance</h3>
+<pre><code class="language-solidity">function distance(int256[2] ptA, int256[2] ptB) public view returns (uint256 distanceNanometers_)
+</code></pre>
+<h3 id="area">area</h3>
+<pre><code class="language-solidity">function area(int256[2][] _coordinates) public pure returns (uint256 area_)
+</code></pre>
+<p>@notice
+        // https://www.mathopenref.com/coordpolygonarea.html
+       Only accepts simple polygons, not multigeometry polygons</p>
+<h3 id="centroid">centroid</h3>
+<pre><code class="language-solidity">function centroid(int256[2][] _coordinates) public pure returns (int256[2])
+</code></pre>
+<p>Returns centroid of group of points or</p>
+<h3 id="boundingbox">boundingBox</h3>
+<pre><code class="language-solidity">function boundingBox(int256[2][] _coordinates) public pure returns (int256[2][2])
+</code></pre>
+<p>Returns bounding box of geometry as [[minLon, minLat], [maxLon, maxLat]]</p>
+<h3 id="length">length</h3>
+<pre><code class="language-solidity">function length(int256[2][] _coordinates) public view returns (uint256 length_)
+</code></pre>
+<h3 id="perimeter">perimeter</h3>
+<pre><code class="language-solidity">function perimeter(int256[2][] _coordinates) public view returns (uint256 perimeter_)
+</code></pre>
+<h3 id="distancebetweenazimuthalequidistantprojectedpoints">distanceBetweenAzimuthalEquidistantProjectedPoints</h3>
+<pre><code class="language-solidity">function distanceBetweenAzimuthalEquidistantProjectedPoints(uint256[2] ptA, uint256[2] ptB) public view returns (uint256)
+</code></pre>
+<h3 id="bearingfromazimuthalequidistantprojectedpoints">bearingFromAzimuthalEquidistantProjectedPoints</h3>
+<pre><code class="language-solidity">function bearingFromAzimuthalEquidistantProjectedPoints(uint256[2] ptA, uint256[2] ptB) public view returns (uint256)
+</code></pre>
+<h3 id="boundingboxbuffer">boundingBoxBuffer</h3>
+<pre><code class="language-solidity">function boundingBoxBuffer(int256[2] _point, int256 _buffer) public pure returns (int256[2][2])
+</code></pre>
+<h3 id="pointinbbox">pointInBbox</h3>
+<pre><code class="language-solidity">function pointInBbox(int256[2] _point, int256[2][2] _bbox) public pure returns (bool ptInsideBbox_)
+</code></pre>
+<h3 id="pointinpolygon">pointInPolygon</h3>
+<pre><code class="language-solidity">function pointInPolygon(int256[2] _point, int256[] _polygon) public pure returns (bool)
+</code></pre>
+              
+            </div>
+          </div><footer>
+    <div class="rst-footer-buttons" role="navigation" aria-label="Footer Navigation">
+        <a href="../Trigonometry/" class="btn btn-neutral float-right" title="Trigonometry">Next <span class="icon icon-circle-arrow-right"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+  </div>
+
+  Built with <a href="https://www.mkdocs.org/">MkDocs</a> using a <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+          
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" aria-label="Versions">
+  <span class="rst-current-version" data-toggle="rst-current-version">
+    
+    
+    
+      <span><a href="../Trigonometry/" style="color: #fcfcfc">Next &raquo;</a></span>
+    
+  </span>
+</div>
+    <script>var base_url = '..';</script>
+    <script src="../js/theme_extra.js" defer></script>
+    <script src="../js/theme.js" defer></script>
+      <script src="../search/main.js" defer></script>
+    <script defer>
+        window.onload = function () {
+            SphinxRtdTheme.Navigation.enable(true);
+        };
+    </script>
+
+</body>
+</html>
