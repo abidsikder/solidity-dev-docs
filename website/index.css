@@ -1,14 +1,69 @@
 body {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
   background-color: black;
   color: white;
   font-family: sans-serif;
 }
 
 h1 {
+  margin: 20px  0 20px 0;
+  font-size: 4rem;
+  text-align: center;
+}
+#github {
+  font-size: 2rem;
+  text-decoration: underline;
+  text-decoration-color: white;
+}
+
+nav {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  margin-top: 40px;
+}
+nav a {
   font-size: 3rem;
+
+  border-radius: 10px;
+  margin-bottom: 20px;
+  padding: 13px;
+  box-shadow: 0 0 10px 0 white;
+  border: 3px solid white;
+}
+
+ nav > a:hover {
+  color: black;
+  background-color: white;
+ }
+
+  /* mobile phones and portrait mode */
+@media only screen and (max-width: 767px) {
+	nav {
+		width: 85%;
+	}
+}
+
+/* desktop */
+@media only screen and (min-width: 767px) and (max-width: 1279px) {
+	 nav {
+		width: 55%;
+	}
+}
+
+/* widescreen and Full HD */
+@media only screen and (min-width: 1279px) {
+	nav {
+		width: 45%;
+	}
 }
 
 a, a:visited, a:hover, a:active {
-  font-size: 2rem;
   color: inherit;
+  text-decoration: none;
 }
+
