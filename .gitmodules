@@ -1,6 +1,0 @@
-[submodule "projects/prb-math"]
-	path = projects/prb-math
-	url = https://github.com/abidsikder/prb-math.git
-[submodule "projects/spatial-sol"]
-	path = projects/spatial-sol
-	url = https://github.com/abidsikder/spatial-sol
