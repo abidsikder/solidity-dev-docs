@@ -1,0 +1,958 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+      <link rel="shortcut icon" href="../../img/favicon.ico" />
+    <title>PRBMathUD60x18Typed - Solidity DevDocs</title>
+    <link rel="stylesheet" href="../../css/theme.css" />
+    <link rel="stylesheet" href="../../css/theme_extra.css" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.5.0/styles/github.min.css" />
+    
+      <script>
+        // Current page data
+        var mkdocs_page_name = "PRBMathUD60x18Typed";
+        var mkdocs_page_input_path = "prb-math/PRBMathUD60x18Typed.md";
+        var mkdocs_page_url = null;
+      </script>
+    
+    <script src="../../js/jquery-3.6.0.min.js" defer></script>
+    <!--[if lt IE 9]>
+      <script src="../../js/html5shiv.min.js"></script>
+    <![endif]-->
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.5.0/highlight.min.js"></script>
+      <script>hljs.initHighlightingOnLoad();</script> 
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+    <div class="wy-side-scroll">
+      <div class="wy-side-nav-search">
+          <a href="../.." class="icon icon-home"> Solidity DevDocs
+        </a><div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+      <input type="text" name="q" placeholder="Search docs" title="Type search term here" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption"><span class="caption-text">Prb math</span></p>
+              <ul class="current">
+                  <li class="toctree-l1"><a class="reference internal" href="../PRBMath/">PRBMath</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../PRBMathSD59x18/">PRBMathSD59x18</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../PRBMathSD59x18Typed/">PRBMathSD59x18Typed</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../PRBMathUD60x18/">PRBMathUD60x18</a>
+                  </li>
+                  <li class="toctree-l1 current"><a class="reference internal current" href="./">PRBMathUD60x18Typed</a>
+    <ul class="current">
+    <li class="toctree-l2"><a class="reference internal" href="#half_scale">HALF_SCALE</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#log2_e">LOG2_E</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#max_ud60x18">MAX_UD60x18</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#max_whole_ud60x18">MAX_WHOLE_UD60x18</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#scale">SCALE</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#add">add</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#avg">avg</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#ceil">ceil</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#div">div</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#e">e</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#exp">exp</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#exp2">exp2</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#floor">floor</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#frac">frac</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#fromuint">fromUint</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#gm">gm</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#inv">inv</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#ln">ln</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#log10">log10</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#log2">log2</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#mul">mul</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#pi">pi</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#pow">pow</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#powu">powu</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#scale_1">scale</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#sqrt">sqrt</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#sub">sub</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#touint">toUint</a>
+    </li>
+    </ul>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="#">Test</a>
+    <ul>
+                <li class="toctree-l2"><a class="reference internal" href="../test/PRBMathSD59x18Mock/">PRBMathSD59x18Mock</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../test/PRBMathSD59x18TypedMock/">PRBMathSD59x18TypedMock</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../test/PRBMathUD60x18Mock/">PRBMathUD60x18Mock</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../test/PRBMathUD60x18TypedMock/">PRBMathUD60x18TypedMock</a>
+                </li>
+    </ul>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Spatial sol</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../../spatial-sol/Jurisdiction/">Jurisdiction</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../spatial-sol/LocationAware/">LocationAware</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../spatial-sol/Migrations/">Migrations</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../spatial-sol/Spatial/">Spatial</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../spatial-sol/Trigonometry/">Trigonometry</a>
+                  </li>
+              </ul>
+      </div>
+    </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+      <nav class="wy-nav-top" role="navigation" aria-label="Mobile navigation menu">
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../..">Solidity DevDocs</a>
+        
+      </nav>
+      <div class="wy-nav-content">
+        <div class="rst-content"><div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../.." class="icon icon-home" alt="Docs"></a> &raquo;</li>
+          <li>Prb math &raquo;</li>
+      <li>PRBMathUD60x18Typed</li>
+    <li class="wy-breadcrumbs-aside">
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+            <div class="section" itemprop="articleBody">
+              
+                <h2 id="prbmathud60x18typed">PRBMathUD60x18Typed</h2>
+<p>Smart contract library for advanced fixed-point math that works with uint256 numbers considered to have 18
+trailing decimals. We call this number representation unsigned 60.18-decimal fixed-point, since there can be up to 60
+digits in the integer part and up to 18 decimals in the fractional part. The numbers are bound by the minimum and the
+maximum values permitted by the Solidity type uint256.</p>
+<p><em>This is the same as PRBMathUD59x18, except that it works with structs instead of raw uint256s.</em></p>
+<h3 id="half_scale">HALF_SCALE</h3>
+<pre><code class="language-solidity">uint256 HALF_SCALE
+</code></pre>
+<p><em>Half the SCALE number.</em></p>
+<h3 id="log2_e">LOG2_E</h3>
+<pre><code class="language-solidity">uint256 LOG2_E
+</code></pre>
+<p><em>log2(e) as an unsigned 60.18-decimal fixed-point number.</em></p>
+<h3 id="max_ud60x18">MAX_UD60x18</h3>
+<pre><code class="language-solidity">uint256 MAX_UD60x18
+</code></pre>
+<p><em>The maximum value an unsigned 60.18-decimal fixed-point number can have.</em></p>
+<h3 id="max_whole_ud60x18">MAX_WHOLE_UD60x18</h3>
+<pre><code class="language-solidity">uint256 MAX_WHOLE_UD60x18
+</code></pre>
+<p><em>The maximum whole value an unsigned 60.18-decimal fixed-point number can have.</em></p>
+<h3 id="scale">SCALE</h3>
+<pre><code class="language-solidity">uint256 SCALE
+</code></pre>
+<p><em>How many trailing decimals can be represented.</em></p>
+<h3 id="add">add</h3>
+<pre><code class="language-solidity">function add(struct PRBMath.UD60x18 x, struct PRBMath.UD60x18 y) internal pure returns (struct PRBMath.UD60x18 result)
+</code></pre>
+<p>Adds two unsigned 60.18-decimal fixed-point numbers together, returning a new unsigned 60.18-decimal
+fixed-point number.</p>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>x</td>
+<td>struct PRBMath.UD60x18</td>
+<td>The first summand as an unsigned 60.18-decimal fixed-point number.</td>
+</tr>
+<tr>
+<td>y</td>
+<td>struct PRBMath.UD60x18</td>
+<td>The second summand as an unsigned 60.18-decimal fixed-point number.</td>
+</tr>
+</tbody>
+</table>
+<h3 id="avg">avg</h3>
+<pre><code class="language-solidity">function avg(struct PRBMath.UD60x18 x, struct PRBMath.UD60x18 y) internal pure returns (struct PRBMath.UD60x18 result)
+</code></pre>
+<p>Calculates the arithmetic average of x and y, rounding down.</p>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>x</td>
+<td>struct PRBMath.UD60x18</td>
+<td>The first operand as an unsigned 60.18-decimal fixed-point number.</td>
+</tr>
+<tr>
+<td>y</td>
+<td>struct PRBMath.UD60x18</td>
+<td>The second operand as an unsigned 60.18-decimal fixed-point number.</td>
+</tr>
+</tbody>
+</table>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>result</td>
+<td>struct PRBMath.UD60x18</td>
+<td>The arithmetic average as an unsigned 60.18-decimal fixed-point number.</td>
+</tr>
+</tbody>
+</table>
+<h3 id="ceil">ceil</h3>
+<pre><code class="language-solidity">function ceil(struct PRBMath.UD60x18 x) internal pure returns (struct PRBMath.UD60x18 result)
+</code></pre>
+<p>Yields the least unsigned 60.18 decimal fixed-point number greater than or equal to x.</p>
+<p>_Optimized for fractional value inputs, because for every whole value there are (1e18 - 1) fractional counterparts.
+See https://en.wikipedia.org/wiki/Floor_and_ceiling_functions.</p>
+<p>Requirements:
+- x must be less than or equal to MAX_WHOLE_UD60x18._</p>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>x</td>
+<td>struct PRBMath.UD60x18</td>
+<td>The unsigned 60.18-decimal fixed-point number to ceil.</td>
+</tr>
+</tbody>
+</table>
+<h3 id="div">div</h3>
+<pre><code class="language-solidity">function div(struct PRBMath.UD60x18 x, struct PRBMath.UD60x18 y) internal pure returns (struct PRBMath.UD60x18 result)
+</code></pre>
+<p>Divides two unsigned 60.18-decimal fixed-point numbers, returning a new unsigned 60.18-decimal fixed-point number.</p>
+<p>_Uses mulDiv to enable overflow-safe multiplication and division.</p>
+<p>Requirements:
+- The denominator cannot be zero._</p>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>x</td>
+<td>struct PRBMath.UD60x18</td>
+<td>The numerator as an unsigned 60.18-decimal fixed-point number.</td>
+</tr>
+<tr>
+<td>y</td>
+<td>struct PRBMath.UD60x18</td>
+<td>The denominator as an unsigned 60.18-decimal fixed-point number.</td>
+</tr>
+</tbody>
+</table>
+<h3 id="e">e</h3>
+<pre><code class="language-solidity">function e() internal pure returns (struct PRBMath.UD60x18 result)
+</code></pre>
+<p>Returns Euler's number as an unsigned 60.18-decimal fixed-point number.</p>
+<p><em>See https://en.wikipedia.org/wiki/E</em>(mathematical_constant)._</p>
+<h3 id="exp">exp</h3>
+<pre><code class="language-solidity">function exp(struct PRBMath.UD60x18 x) internal pure returns (struct PRBMath.UD60x18 result)
+</code></pre>
+<p>Calculates the natural exponent of x.</p>
+<p>_Based on the insight that e^x = 2^(x * log2(e)).</p>
+<p>Requirements:
+- All from "log2".
+- x must be less than 88.722839111672999628._</p>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>x</td>
+<td>struct PRBMath.UD60x18</td>
+<td>The exponent as an unsigned 60.18-decimal fixed-point number.</td>
+</tr>
+</tbody>
+</table>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>result</td>
+<td>struct PRBMath.UD60x18</td>
+<td>The result as an unsigned 60.18-decimal fixed-point number.</td>
+</tr>
+</tbody>
+</table>
+<h3 id="exp2">exp2</h3>
+<pre><code class="language-solidity">function exp2(struct PRBMath.UD60x18 x) internal pure returns (struct PRBMath.UD60x18 result)
+</code></pre>
+<p>Calculates the binary exponent of x using the binary fraction method.</p>
+<p>_See https://ethereum.stackexchange.com/q/79903/24693.</p>
+<p>Requirements:
+- x must be 192 or less.
+- The result must fit within MAX_UD60x18._</p>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>x</td>
+<td>struct PRBMath.UD60x18</td>
+<td>The exponent as an unsigned 60.18-decimal fixed-point number.</td>
+</tr>
+</tbody>
+</table>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>result</td>
+<td>struct PRBMath.UD60x18</td>
+<td>The result as an unsigned 60.18-decimal fixed-point number.</td>
+</tr>
+</tbody>
+</table>
+<h3 id="floor">floor</h3>
+<pre><code class="language-solidity">function floor(struct PRBMath.UD60x18 x) internal pure returns (struct PRBMath.UD60x18 result)
+</code></pre>
+<p>Yields the greatest unsigned 60.18 decimal fixed-point number less than or equal to x.</p>
+<p><em>Optimized for fractional value inputs, because for every whole value there are (1e18 - 1) fractional counterparts.
+See https://en.wikipedia.org/wiki/Floor_and_ceiling_functions.</em></p>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>x</td>
+<td>struct PRBMath.UD60x18</td>
+<td>The unsigned 60.18-decimal fixed-point number to floor.</td>
+</tr>
+</tbody>
+</table>
+<h3 id="frac">frac</h3>
+<pre><code class="language-solidity">function frac(struct PRBMath.UD60x18 x) internal pure returns (struct PRBMath.UD60x18 result)
+</code></pre>
+<p>Yields the excess beyond the floor of x.</p>
+<p><em>Based on the odd function definition https://en.wikipedia.org/wiki/Fractional_part.</em></p>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>x</td>
+<td>struct PRBMath.UD60x18</td>
+<td>The unsigned 60.18-decimal fixed-point number to get the fractional part of.</td>
+</tr>
+</tbody>
+</table>
+<h3 id="fromuint">fromUint</h3>
+<pre><code class="language-solidity">function fromUint(uint256 x) internal pure returns (struct PRBMath.UD60x18 result)
+</code></pre>
+<p>Converts a number from basic integer form to unsigned 60.18-decimal fixed-point representation.</p>
+<p><em>Requirements:
+- x must be less than or equal to MAX_UD60x18 divided by SCALE.</em></p>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>x</td>
+<td>uint256</td>
+<td>The basic integer to convert.</td>
+</tr>
+</tbody>
+</table>
+<h3 id="gm">gm</h3>
+<pre><code class="language-solidity">function gm(struct PRBMath.UD60x18 x, struct PRBMath.UD60x18 y) internal pure returns (struct PRBMath.UD60x18 result)
+</code></pre>
+<p>Calculates geometric mean of x and y, i.e. sqrt(x * y), rounding down.</p>
+<p><em>Requirements:
+- x * y must fit within MAX_UD60x18, lest it overflows.</em></p>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>x</td>
+<td>struct PRBMath.UD60x18</td>
+<td>The first operand as an unsigned 60.18-decimal fixed-point number.</td>
+</tr>
+<tr>
+<td>y</td>
+<td>struct PRBMath.UD60x18</td>
+<td>The second operand as an unsigned 60.18-decimal fixed-point number.</td>
+</tr>
+</tbody>
+</table>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>result</td>
+<td>struct PRBMath.UD60x18</td>
+<td>The result as an unsigned 60.18-decimal fixed-point number.</td>
+</tr>
+</tbody>
+</table>
+<h3 id="inv">inv</h3>
+<pre><code class="language-solidity">function inv(struct PRBMath.UD60x18 x) internal pure returns (struct PRBMath.UD60x18 result)
+</code></pre>
+<p>Calculates 1 / x, rounding toward zero.</p>
+<p><em>Requirements:
+- x cannot be zero.</em></p>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>x</td>
+<td>struct PRBMath.UD60x18</td>
+<td>The unsigned 60.18-decimal fixed-point number for which to calculate the inverse.</td>
+</tr>
+</tbody>
+</table>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>result</td>
+<td>struct PRBMath.UD60x18</td>
+<td>The inverse as an unsigned 60.18-decimal fixed-point number.</td>
+</tr>
+</tbody>
+</table>
+<h3 id="ln">ln</h3>
+<pre><code class="language-solidity">function ln(struct PRBMath.UD60x18 x) internal pure returns (struct PRBMath.UD60x18 result)
+</code></pre>
+<p>Calculates the natural logarithm of x.</p>
+<p>_Based on the insight that ln(x) = log2(x) / log2(e).</p>
+<p>Requirements:
+- All from "log2".</p>
+<p>Caveats:
+- All from "log2".
+- This doesn't return exactly 1 for 2.718281828459045235, for that we would need more fine-grained precision._</p>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>x</td>
+<td>struct PRBMath.UD60x18</td>
+<td>The unsigned 60.18-decimal fixed-point number for which to calculate the natural logarithm.</td>
+</tr>
+</tbody>
+</table>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>result</td>
+<td>struct PRBMath.UD60x18</td>
+<td>The natural logarithm as an unsigned 60.18-decimal fixed-point number.</td>
+</tr>
+</tbody>
+</table>
+<h3 id="log10">log10</h3>
+<pre><code class="language-solidity">function log10(struct PRBMath.UD60x18 x) internal pure returns (struct PRBMath.UD60x18 result)
+</code></pre>
+<p>Calculates the common logarithm of x.</p>
+<p>_First checks if x is an exact power of ten and it stops if yes. If it's not, calculates the common
+logarithm based on the insight that log10(x) = log2(x) / log2(10).</p>
+<p>Requirements:
+- All from "log2".</p>
+<p>Caveats:
+- All from "log2"._</p>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>x</td>
+<td>struct PRBMath.UD60x18</td>
+<td>The unsigned 60.18-decimal fixed-point number for which to calculate the common logarithm.</td>
+</tr>
+</tbody>
+</table>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>result</td>
+<td>struct PRBMath.UD60x18</td>
+<td>The common logarithm as an unsigned 60.18-decimal fixed-point number.</td>
+</tr>
+</tbody>
+</table>
+<h3 id="log2">log2</h3>
+<pre><code class="language-solidity">function log2(struct PRBMath.UD60x18 x) internal pure returns (struct PRBMath.UD60x18 result)
+</code></pre>
+<p>Calculates the binary logarithm of x.</p>
+<p>_Based on the iterative approximation algorithm.
+https://en.wikipedia.org/wiki/Binary_logarithm#Iterative_approximation</p>
+<p>Requirements:
+- x must be greater than or equal to SCALE, otherwise the result would be negative.</p>
+<p>Caveats:
+- The results are nor perfectly accurate to the last decimal, due to the lossy precision of the iterative approximation._</p>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>x</td>
+<td>struct PRBMath.UD60x18</td>
+<td>The unsigned 60.18-decimal fixed-point number for which to calculate the binary logarithm.</td>
+</tr>
+</tbody>
+</table>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>result</td>
+<td>struct PRBMath.UD60x18</td>
+<td>The binary logarithm as an unsigned 60.18-decimal fixed-point number.</td>
+</tr>
+</tbody>
+</table>
+<h3 id="mul">mul</h3>
+<pre><code class="language-solidity">function mul(struct PRBMath.UD60x18 x, struct PRBMath.UD60x18 y) internal pure returns (struct PRBMath.UD60x18 result)
+</code></pre>
+<p>Multiplies two unsigned 60.18-decimal fixed-point numbers together, returning a new unsigned 60.18-decimal
+fixed-point number.</p>
+<p><em>See the documentation for the "PRBMath.mulDivFixedPoint" function.</em></p>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>x</td>
+<td>struct PRBMath.UD60x18</td>
+<td>The multiplicand as an unsigned 60.18-decimal fixed-point number.</td>
+</tr>
+<tr>
+<td>y</td>
+<td>struct PRBMath.UD60x18</td>
+<td>The multiplier as an unsigned 60.18-decimal fixed-point number.</td>
+</tr>
+</tbody>
+</table>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>result</td>
+<td>struct PRBMath.UD60x18</td>
+<td>The product as an unsigned 60.18-decimal fixed-point number.</td>
+</tr>
+</tbody>
+</table>
+<h3 id="pi">pi</h3>
+<pre><code class="language-solidity">function pi() internal pure returns (struct PRBMath.UD60x18 result)
+</code></pre>
+<p>Returns PI as an unsigned 60.18-decimal fixed-point number.</p>
+<h3 id="pow">pow</h3>
+<pre><code class="language-solidity">function pow(struct PRBMath.UD60x18 x, struct PRBMath.UD60x18 y) internal pure returns (struct PRBMath.UD60x18 result)
+</code></pre>
+<p>Raises x to the power of y.</p>
+<p>_Based on the insight that x^y = 2^(log2(x) * y).</p>
+<p>Requirements:
+- All from "exp2", "log2" and "mul".</p>
+<p>Caveats:
+- All from "exp2", "log2" and "mul".
+- Assumes 0^0 is 1._</p>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>x</td>
+<td>struct PRBMath.UD60x18</td>
+<td>Number to raise to given power y, as an unsigned 60.18-decimal fixed-point number.</td>
+</tr>
+<tr>
+<td>y</td>
+<td>struct PRBMath.UD60x18</td>
+<td>Exponent to raise x to, as an unsigned 60.18-decimal fixed-point number.</td>
+</tr>
+</tbody>
+</table>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>result</td>
+<td>struct PRBMath.UD60x18</td>
+<td>x raised to power y, as an unsigned 60.18-decimal fixed-point number.</td>
+</tr>
+</tbody>
+</table>
+<h3 id="powu">powu</h3>
+<pre><code class="language-solidity">function powu(struct PRBMath.UD60x18 x, uint256 y) internal pure returns (struct PRBMath.UD60x18 result)
+</code></pre>
+<p>Raises x (unsigned 60.18-decimal fixed-point number) to the power of y (basic unsigned integer) using the
+famous algorithm "exponentiation by squaring".</p>
+<p>_See https://en.wikipedia.org/wiki/Exponentiation_by_squaring</p>
+<p>Requirements:
+- The result must fit within MAX_UD60x18.</p>
+<p>Caveats:
+- All from "mul".
+- Assumes 0^0 is 1._</p>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>x</td>
+<td>struct PRBMath.UD60x18</td>
+<td>The base as an unsigned 60.18-decimal fixed-point number.</td>
+</tr>
+<tr>
+<td>y</td>
+<td>uint256</td>
+<td>The exponent as an uint256.</td>
+</tr>
+</tbody>
+</table>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>result</td>
+<td>struct PRBMath.UD60x18</td>
+<td>The result as an unsigned 60.18-decimal fixed-point number.</td>
+</tr>
+</tbody>
+</table>
+<h3 id="scale_1">scale</h3>
+<pre><code class="language-solidity">function scale() internal pure returns (struct PRBMath.UD60x18 result)
+</code></pre>
+<p>Returns 1 as an unsigned 60.18-decimal fixed-point number.</p>
+<h3 id="sqrt">sqrt</h3>
+<pre><code class="language-solidity">function sqrt(struct PRBMath.UD60x18 x) internal pure returns (struct PRBMath.UD60x18 result)
+</code></pre>
+<p>Calculates the square root of x, rounding down.</p>
+<p>_Uses the Babylonian method https://en.wikipedia.org/wiki/Methods_of_computing_square_roots#Babylonian_method.</p>
+<p>Requirements:
+- x must be less than MAX_UD60x18 / SCALE._</p>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>x</td>
+<td>struct PRBMath.UD60x18</td>
+<td>The unsigned 60.18-decimal fixed-point number for which to calculate the square root.</td>
+</tr>
+</tbody>
+</table>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>result</td>
+<td>struct PRBMath.UD60x18</td>
+<td>The result as an unsigned 60.18-decimal fixed-point .</td>
+</tr>
+</tbody>
+</table>
+<h3 id="sub">sub</h3>
+<pre><code class="language-solidity">function sub(struct PRBMath.UD60x18 x, struct PRBMath.UD60x18 y) internal pure returns (struct PRBMath.UD60x18 result)
+</code></pre>
+<p>Subtracts one unsigned 60.18-decimal fixed-point number from another one, returning a new unsigned 60.18-decimal
+fixed-point number.</p>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>x</td>
+<td>struct PRBMath.UD60x18</td>
+<td>The minuend as an unsigned 60.18-decimal fixed-point number.</td>
+</tr>
+<tr>
+<td>y</td>
+<td>struct PRBMath.UD60x18</td>
+<td>The subtrahend as an unsigned 60.18-decimal fixed-point number.</td>
+</tr>
+</tbody>
+</table>
+<h3 id="touint">toUint</h3>
+<pre><code class="language-solidity">function toUint(struct PRBMath.UD60x18 x) internal pure returns (uint256 result)
+</code></pre>
+<p>Converts a unsigned 60.18-decimal fixed-point number to basic integer form, rounding down in the process.</p>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>x</td>
+<td>struct PRBMath.UD60x18</td>
+<td>The unsigned 60.18-decimal fixed-point number to convert.</td>
+</tr>
+</tbody>
+</table>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>result</td>
+<td>uint256</td>
+<td>The same number in basic integer form.</td>
+</tr>
+</tbody>
+</table>
+              
+            </div>
+          </div><footer>
+    <div class="rst-footer-buttons" role="navigation" aria-label="Footer Navigation">
+        <a href="../PRBMathUD60x18/" class="btn btn-neutral float-left" title="PRBMathUD60x18"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+        <a href="../test/PRBMathSD59x18Mock/" class="btn btn-neutral float-right" title="PRBMathSD59x18Mock">Next <span class="icon icon-circle-arrow-right"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+  </div>
+
+  Built with <a href="https://www.mkdocs.org/">MkDocs</a> using a <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+          
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" aria-label="Versions">
+  <span class="rst-current-version" data-toggle="rst-current-version">
+    
+    
+      <span><a href="../PRBMathUD60x18/" style="color: #fcfcfc">&laquo; Previous</a></span>
+    
+    
+      <span><a href="../test/PRBMathSD59x18Mock/" style="color: #fcfcfc">Next &raquo;</a></span>
+    
+  </span>
+</div>
+    <script>var base_url = '../..';</script>
+    <script src="../../js/theme_extra.js" defer></script>
+    <script src="../../js/theme.js" defer></script>
+      <script src="../../search/main.js" defer></script>
+    <script defer>
+        window.onload = function () {
+            SphinxRtdTheme.Navigation.enable(true);
+        };
+    </script>
+
+</body>
+</html>
