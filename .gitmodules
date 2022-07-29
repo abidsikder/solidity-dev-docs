@@ -4,3 +4,6 @@
 [submodule "projects/spatial-sol"]
 	path = projects/spatial-sol
 	url = https://github.com/AstralProtocol/spatial-sol.git
+[submodule "projects/uniswap-v3-core"]
+	path = projects/uniswap-v3-core
+	url = https://github.com/Uniswap/v3-core.git

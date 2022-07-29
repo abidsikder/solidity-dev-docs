@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+      <link rel="shortcut icon" href="../../img/favicon.ico" />
+    <title>NoDelegateCall - Solidity DevDocs</title>
+    <link rel="stylesheet" href="../../css/theme.css" />
+    <link rel="stylesheet" href="../../css/theme_extra.css" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.5.0/styles/github.min.css" />
+    
+      <script>
+        // Current page data
+        var mkdocs_page_name = "NoDelegateCall";
+        var mkdocs_page_input_path = "uniswap-v3-core/NoDelegateCall.md";
+        var mkdocs_page_url = null;
+      </script>
+    
+    <script src="../../js/jquery-3.6.0.min.js" defer></script>
+    <!--[if lt IE 9]>
+      <script src="../../js/html5shiv.min.js"></script>
+    <![endif]-->
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.5.0/highlight.min.js"></script>
+      <script>hljs.initHighlightingOnLoad();</script> 
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+    <div class="wy-side-scroll">
+      <div class="wy-side-nav-search">
+          <a href="../.." class="icon icon-home"> Solidity DevDocs
+        </a><div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+      <input type="text" name="q" placeholder="Search docs" title="Type search term here" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption"><span class="caption-text">Prb math</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../../prb-math/PRBMath/">PRBMath</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../prb-math/PRBMathSD59x18/">PRBMathSD59x18</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../prb-math/PRBMathSD59x18Typed/">PRBMathSD59x18Typed</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../prb-math/PRBMathUD60x18/">PRBMathUD60x18</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../prb-math/PRBMathUD60x18Typed/">PRBMathUD60x18Typed</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Spatial sol</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../../spatial-sol/Jurisdiction/">Jurisdiction</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../spatial-sol/LocationAware/">LocationAware</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../spatial-sol/Migrations/">Migrations</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../spatial-sol/Spatial/">Spatial</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../spatial-sol/Trigonometry/">Trigonometry</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Uniswap v3 core</span></p>
+              <ul class="current">
+                  <li class="toctree-l1 current"><a class="reference internal current" href="./">NoDelegateCall</a>
+    <ul class="current">
+    <li class="toctree-l2"><a class="reference internal" href="#original">original</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#constructor">constructor</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#checknotdelegatecall">checkNotDelegateCall</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#nodelegatecall_1">noDelegateCall</a>
+    </li>
+    </ul>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../UniswapV3Factory/">UniswapV3Factory</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../UniswapV3Pool/">UniswapV3Pool</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../UniswapV3PoolDeployer/">UniswapV3PoolDeployer</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="#">Interfaces</a>
+    <ul>
+                <li class="toctree-l2"><a class="reference internal" href="../interfaces/IERC20Minimal/">IERC20Minimal</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../interfaces/IUniswapV3Factory/">IUniswapV3Factory</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../interfaces/IUniswapV3Pool/">IUniswapV3Pool</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../interfaces/IUniswapV3PoolDeployer/">IUniswapV3PoolDeployer</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="#">Callback</a>
+    <ul>
+                <li class="toctree-l3"><a class="reference internal" href="../interfaces/callback/IUniswapV3FlashCallback/">IUniswapV3FlashCallback</a>
+                </li>
+                <li class="toctree-l3"><a class="reference internal" href="../interfaces/callback/IUniswapV3MintCallback/">IUniswapV3MintCallback</a>
+                </li>
+                <li class="toctree-l3"><a class="reference internal" href="../interfaces/callback/IUniswapV3SwapCallback/">IUniswapV3SwapCallback</a>
+                </li>
+    </ul>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="#">Pool</a>
+    <ul>
+                <li class="toctree-l3"><a class="reference internal" href="../interfaces/pool/IUniswapV3PoolActions/">IUniswapV3PoolActions</a>
+                </li>
+                <li class="toctree-l3"><a class="reference internal" href="../interfaces/pool/IUniswapV3PoolDerivedState/">IUniswapV3PoolDerivedState</a>
+                </li>
+                <li class="toctree-l3"><a class="reference internal" href="../interfaces/pool/IUniswapV3PoolEvents/">IUniswapV3PoolEvents</a>
+                </li>
+                <li class="toctree-l3"><a class="reference internal" href="../interfaces/pool/IUniswapV3PoolImmutables/">IUniswapV3PoolImmutables</a>
+                </li>
+                <li class="toctree-l3"><a class="reference internal" href="../interfaces/pool/IUniswapV3PoolOwnerActions/">IUniswapV3PoolOwnerActions</a>
+                </li>
+                <li class="toctree-l3"><a class="reference internal" href="../interfaces/pool/IUniswapV3PoolState/">IUniswapV3PoolState</a>
+                </li>
+    </ul>
+                </li>
+    </ul>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="#">Libraries</a>
+    <ul>
+                <li class="toctree-l2"><a class="reference internal" href="../libraries/BitMath/">BitMath</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../libraries/FixedPoint128/">FixedPoint128</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../libraries/FixedPoint96/">FixedPoint96</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../libraries/FullMath/">FullMath</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../libraries/LiquidityMath/">LiquidityMath</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../libraries/LowGasSafeMath/">LowGasSafeMath</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../libraries/Oracle/">Oracle</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../libraries/Position/">Position</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../libraries/SafeCast/">SafeCast</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../libraries/SqrtPriceMath/">SqrtPriceMath</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../libraries/SwapMath/">SwapMath</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../libraries/Tick/">Tick</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../libraries/TickBitmap/">TickBitmap</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../libraries/TickMath/">TickMath</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../libraries/TransferHelper/">TransferHelper</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../libraries/UnsafeMath/">UnsafeMath</a>
+                </li>
+    </ul>
+                  </li>
+              </ul>
+      </div>
+    </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+      <nav class="wy-nav-top" role="navigation" aria-label="Mobile navigation menu">
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../..">Solidity DevDocs</a>
+        
+      </nav>
+      <div class="wy-nav-content">
+        <div class="rst-content"><div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../.." class="icon icon-home" alt="Docs"></a> &raquo;</li>
+          <li>Uniswap v3 core &raquo;</li>
+      <li>NoDelegateCall</li>
+    <li class="wy-breadcrumbs-aside">
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+            <div class="section" itemprop="articleBody">
+              
+                <h2 id="nodelegatecall">NoDelegateCall</h2>
+<p>Base contract that provides a modifier for preventing delegatecall to methods in a child contract</p>
+<h3 id="original">original</h3>
+<pre><code class="language-solidity">address original
+</code></pre>
+<p><em>The original address of this contract</em></p>
+<h3 id="constructor">constructor</h3>
+<pre><code class="language-solidity">constructor() internal
+</code></pre>
+<h3 id="checknotdelegatecall">checkNotDelegateCall</h3>
+<pre><code class="language-solidity">function checkNotDelegateCall() private view
+</code></pre>
+<p><em>Private method is used instead of inlining into modifier because modifiers are copied into each method,
+    and the use of immutable means the address bytes are copied in every place the modifier is used.</em></p>
+<h3 id="nodelegatecall_1">noDelegateCall</h3>
+<pre><code class="language-solidity">modifier noDelegateCall()
+</code></pre>
+<p>Prevents delegatecall into the modified method</p>
+              
+            </div>
+          </div><footer>
+    <div class="rst-footer-buttons" role="navigation" aria-label="Footer Navigation">
+        <a href="../../spatial-sol/Trigonometry/" class="btn btn-neutral float-left" title="Trigonometry"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+        <a href="../UniswapV3Factory/" class="btn btn-neutral float-right" title="UniswapV3Factory">Next <span class="icon icon-circle-arrow-right"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+  </div>
+
+  Built with <a href="https://www.mkdocs.org/">MkDocs</a> using a <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+          
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" aria-label="Versions">
+  <span class="rst-current-version" data-toggle="rst-current-version">
+    
+    
+      <span><a href="../../spatial-sol/Trigonometry/" style="color: #fcfcfc">&laquo; Previous</a></span>
+    
+    
+      <span><a href="../UniswapV3Factory/" style="color: #fcfcfc">Next &raquo;</a></span>
+    
+  </span>
+</div>
+    <script>var base_url = '../..';</script>
+    <script src="../../js/theme_extra.js" defer></script>
+    <script src="../../js/theme.js" defer></script>
+      <script src="../../search/main.js" defer></script>
+    <script defer>
+        window.onload = function () {
+            SphinxRtdTheme.Navigation.enable(true);
+        };
+    </script>
+
+</body>
+</html>

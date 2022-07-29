@@ -1,0 +1,810 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+      <link rel="shortcut icon" href="../../../img/favicon.ico" />
+    <title>Oracle - Solidity DevDocs</title>
+    <link rel="stylesheet" href="../../../css/theme.css" />
+    <link rel="stylesheet" href="../../../css/theme_extra.css" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.5.0/styles/github.min.css" />
+    
+      <script>
+        // Current page data
+        var mkdocs_page_name = "Oracle";
+        var mkdocs_page_input_path = "uniswap-v3-core/libraries/Oracle.md";
+        var mkdocs_page_url = null;
+      </script>
+    
+    <script src="../../../js/jquery-3.6.0.min.js" defer></script>
+    <!--[if lt IE 9]>
+      <script src="../../../js/html5shiv.min.js"></script>
+    <![endif]-->
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.5.0/highlight.min.js"></script>
+      <script>hljs.initHighlightingOnLoad();</script> 
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+    <div class="wy-side-scroll">
+      <div class="wy-side-nav-search">
+          <a href="../../.." class="icon icon-home"> Solidity DevDocs
+        </a><div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../../../search.html" method="get">
+      <input type="text" name="q" placeholder="Search docs" title="Type search term here" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption"><span class="caption-text">Prb math</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../../../prb-math/PRBMath/">PRBMath</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../../prb-math/PRBMathSD59x18/">PRBMathSD59x18</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../../prb-math/PRBMathSD59x18Typed/">PRBMathSD59x18Typed</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../../prb-math/PRBMathUD60x18/">PRBMathUD60x18</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../../prb-math/PRBMathUD60x18Typed/">PRBMathUD60x18Typed</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Spatial sol</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../../../spatial-sol/Jurisdiction/">Jurisdiction</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../../spatial-sol/LocationAware/">LocationAware</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../../spatial-sol/Migrations/">Migrations</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../../spatial-sol/Spatial/">Spatial</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../../spatial-sol/Trigonometry/">Trigonometry</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Uniswap v3 core</span></p>
+              <ul class="current">
+                  <li class="toctree-l1"><a class="reference internal" href="../../NoDelegateCall/">NoDelegateCall</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../UniswapV3Factory/">UniswapV3Factory</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../UniswapV3Pool/">UniswapV3Pool</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../UniswapV3PoolDeployer/">UniswapV3PoolDeployer</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="#">Interfaces</a>
+    <ul>
+                <li class="toctree-l2"><a class="reference internal" href="../../interfaces/IERC20Minimal/">IERC20Minimal</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../interfaces/IUniswapV3Factory/">IUniswapV3Factory</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../interfaces/IUniswapV3Pool/">IUniswapV3Pool</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../interfaces/IUniswapV3PoolDeployer/">IUniswapV3PoolDeployer</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="#">Callback</a>
+    <ul>
+                <li class="toctree-l3"><a class="reference internal" href="../../interfaces/callback/IUniswapV3FlashCallback/">IUniswapV3FlashCallback</a>
+                </li>
+                <li class="toctree-l3"><a class="reference internal" href="../../interfaces/callback/IUniswapV3MintCallback/">IUniswapV3MintCallback</a>
+                </li>
+                <li class="toctree-l3"><a class="reference internal" href="../../interfaces/callback/IUniswapV3SwapCallback/">IUniswapV3SwapCallback</a>
+                </li>
+    </ul>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="#">Pool</a>
+    <ul>
+                <li class="toctree-l3"><a class="reference internal" href="../../interfaces/pool/IUniswapV3PoolActions/">IUniswapV3PoolActions</a>
+                </li>
+                <li class="toctree-l3"><a class="reference internal" href="../../interfaces/pool/IUniswapV3PoolDerivedState/">IUniswapV3PoolDerivedState</a>
+                </li>
+                <li class="toctree-l3"><a class="reference internal" href="../../interfaces/pool/IUniswapV3PoolEvents/">IUniswapV3PoolEvents</a>
+                </li>
+                <li class="toctree-l3"><a class="reference internal" href="../../interfaces/pool/IUniswapV3PoolImmutables/">IUniswapV3PoolImmutables</a>
+                </li>
+                <li class="toctree-l3"><a class="reference internal" href="../../interfaces/pool/IUniswapV3PoolOwnerActions/">IUniswapV3PoolOwnerActions</a>
+                </li>
+                <li class="toctree-l3"><a class="reference internal" href="../../interfaces/pool/IUniswapV3PoolState/">IUniswapV3PoolState</a>
+                </li>
+    </ul>
+                </li>
+    </ul>
+                  </li>
+                  <li class="toctree-l1 current"><a class="reference internal current" href="#">Libraries</a>
+    <ul class="current">
+                <li class="toctree-l2"><a class="reference internal" href="../BitMath/">BitMath</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../FixedPoint128/">FixedPoint128</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../FixedPoint96/">FixedPoint96</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../FullMath/">FullMath</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../LiquidityMath/">LiquidityMath</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../LowGasSafeMath/">LowGasSafeMath</a>
+                </li>
+                <li class="toctree-l2 current"><a class="reference internal current" href="./">Oracle</a>
+    <ul class="current">
+    <li class="toctree-l3"><a class="reference internal" href="#observation">Observation</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#transform">transform</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#initialize">initialize</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#write">write</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#grow">grow</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#lte">lte</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#binarysearch">binarySearch</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#getsurroundingobservations">getSurroundingObservations</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#observesingle">observeSingle</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#observe">observe</a>
+    </li>
+    </ul>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../Position/">Position</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../SafeCast/">SafeCast</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../SqrtPriceMath/">SqrtPriceMath</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../SwapMath/">SwapMath</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../Tick/">Tick</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../TickBitmap/">TickBitmap</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../TickMath/">TickMath</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../TransferHelper/">TransferHelper</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../UnsafeMath/">UnsafeMath</a>
+                </li>
+    </ul>
+                  </li>
+              </ul>
+      </div>
+    </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+      <nav class="wy-nav-top" role="navigation" aria-label="Mobile navigation menu">
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../..">Solidity DevDocs</a>
+        
+      </nav>
+      <div class="wy-nav-content">
+        <div class="rst-content"><div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../../.." class="icon icon-home" alt="Docs"></a> &raquo;</li>
+          <li>Uniswap v3 core &raquo;</li>
+          <li>Libraries &raquo;</li>
+      <li>Oracle</li>
+    <li class="wy-breadcrumbs-aside">
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+            <div class="section" itemprop="articleBody">
+              
+                <h2 id="oracle">Oracle</h2>
+<p>Provides price and liquidity data useful for a wide variety of system designs</p>
+<p><em>Instances of stored oracle data, "observations", are collected in the oracle array
+Every pool is initialized with an oracle array length of 1. Anyone can pay the SSTOREs to increase the
+maximum length of the oracle array. New slots will be added when the array is fully populated.
+Observations are overwritten when the full length of the oracle array is populated.
+The most recent observation is available, independent of the length of the oracle array, by passing 0 to observe()</em></p>
+<h3 id="observation">Observation</h3>
+<pre><code class="language-solidity">struct Observation {
+  uint32 blockTimestamp;
+  int56 tickCumulative;
+  uint160 secondsPerLiquidityCumulativeX128;
+  bool initialized;
+}
+</code></pre>
+<h3 id="transform">transform</h3>
+<pre><code class="language-solidity">function transform(struct Oracle.Observation last, uint32 blockTimestamp, int24 tick, uint128 liquidity) private pure returns (struct Oracle.Observation)
+</code></pre>
+<p>Transforms a previous observation into a new observation, given the passage of time and the current tick and liquidity values</p>
+<p><em>blockTimestamp _must</em> be chronologically equal to or greater than last.blockTimestamp, safe for 0 or 1 overflows_</p>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>last</td>
+<td>struct Oracle.Observation</td>
+<td>The specified observation to be transformed</td>
+</tr>
+<tr>
+<td>blockTimestamp</td>
+<td>uint32</td>
+<td>The timestamp of the new observation</td>
+</tr>
+<tr>
+<td>tick</td>
+<td>int24</td>
+<td>The active tick at the time of the new observation</td>
+</tr>
+<tr>
+<td>liquidity</td>
+<td>uint128</td>
+<td>The total in-range liquidity at the time of the new observation</td>
+</tr>
+</tbody>
+</table>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>[0]</td>
+<td>struct Oracle.Observation</td>
+<td>Observation The newly populated observation</td>
+</tr>
+</tbody>
+</table>
+<h3 id="initialize">initialize</h3>
+<pre><code class="language-solidity">function initialize(struct Oracle.Observation[65535] self, uint32 time) internal returns (uint16 cardinality, uint16 cardinalityNext)
+</code></pre>
+<p>Initialize the oracle array by writing the first slot. Called once for the lifecycle of the observations array</p>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>self</td>
+<td>struct Oracle.Observation[65535]</td>
+<td>The stored oracle array</td>
+</tr>
+<tr>
+<td>time</td>
+<td>uint32</td>
+<td>The time of the oracle initialization, via block.timestamp truncated to uint32</td>
+</tr>
+</tbody>
+</table>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>cardinality</td>
+<td>uint16</td>
+<td>The number of populated elements in the oracle array</td>
+</tr>
+<tr>
+<td>cardinalityNext</td>
+<td>uint16</td>
+<td>The new length of the oracle array, independent of population</td>
+</tr>
+</tbody>
+</table>
+<h3 id="write">write</h3>
+<pre><code class="language-solidity">function write(struct Oracle.Observation[65535] self, uint16 index, uint32 blockTimestamp, int24 tick, uint128 liquidity, uint16 cardinality, uint16 cardinalityNext) internal returns (uint16 indexUpdated, uint16 cardinalityUpdated)
+</code></pre>
+<p>Writes an oracle observation to the array</p>
+<p><em>Writable at most once per block. Index represents the most recently written element. cardinality and index must be tracked externally.
+If the index is at the end of the allowable array length (according to cardinality), and the next cardinality
+is greater than the current one, cardinality may be increased. This restriction is created to preserve ordering.</em></p>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>self</td>
+<td>struct Oracle.Observation[65535]</td>
+<td>The stored oracle array</td>
+</tr>
+<tr>
+<td>index</td>
+<td>uint16</td>
+<td>The index of the observation that was most recently written to the observations array</td>
+</tr>
+<tr>
+<td>blockTimestamp</td>
+<td>uint32</td>
+<td>The timestamp of the new observation</td>
+</tr>
+<tr>
+<td>tick</td>
+<td>int24</td>
+<td>The active tick at the time of the new observation</td>
+</tr>
+<tr>
+<td>liquidity</td>
+<td>uint128</td>
+<td>The total in-range liquidity at the time of the new observation</td>
+</tr>
+<tr>
+<td>cardinality</td>
+<td>uint16</td>
+<td>The number of populated elements in the oracle array</td>
+</tr>
+<tr>
+<td>cardinalityNext</td>
+<td>uint16</td>
+<td>The new length of the oracle array, independent of population</td>
+</tr>
+</tbody>
+</table>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>indexUpdated</td>
+<td>uint16</td>
+<td>The new index of the most recently written element in the oracle array</td>
+</tr>
+<tr>
+<td>cardinalityUpdated</td>
+<td>uint16</td>
+<td>The new cardinality of the oracle array</td>
+</tr>
+</tbody>
+</table>
+<h3 id="grow">grow</h3>
+<pre><code class="language-solidity">function grow(struct Oracle.Observation[65535] self, uint16 current, uint16 next) internal returns (uint16)
+</code></pre>
+<p>Prepares the oracle array to store up to <code>next</code> observations</p>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>self</td>
+<td>struct Oracle.Observation[65535]</td>
+<td>The stored oracle array</td>
+</tr>
+<tr>
+<td>current</td>
+<td>uint16</td>
+<td>The current next cardinality of the oracle array</td>
+</tr>
+<tr>
+<td>next</td>
+<td>uint16</td>
+<td>The proposed next cardinality which will be populated in the oracle array</td>
+</tr>
+</tbody>
+</table>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>[0]</td>
+<td>uint16</td>
+<td>next The next cardinality which will be populated in the oracle array</td>
+</tr>
+</tbody>
+</table>
+<h3 id="lte">lte</h3>
+<pre><code class="language-solidity">function lte(uint32 time, uint32 a, uint32 b) private pure returns (bool)
+</code></pre>
+<p>comparator for 32-bit timestamps</p>
+<p><em>safe for 0 or 1 overflows, a and b _must</em> be chronologically before or equal to time_</p>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>time</td>
+<td>uint32</td>
+<td>A timestamp truncated to 32 bits</td>
+</tr>
+<tr>
+<td>a</td>
+<td>uint32</td>
+<td>A comparison timestamp from which to determine the relative position of <code>time</code></td>
+</tr>
+<tr>
+<td>b</td>
+<td>uint32</td>
+<td>From which to determine the relative position of <code>time</code></td>
+</tr>
+</tbody>
+</table>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>[0]</td>
+<td>bool</td>
+<td>bool Whether <code>a</code> is chronologically &lt;= <code>b</code></td>
+</tr>
+</tbody>
+</table>
+<h3 id="binarysearch">binarySearch</h3>
+<pre><code class="language-solidity">function binarySearch(struct Oracle.Observation[65535] self, uint32 time, uint32 target, uint16 index, uint16 cardinality) private view returns (struct Oracle.Observation beforeOrAt, struct Oracle.Observation atOrAfter)
+</code></pre>
+<p>Fetches the observations beforeOrAt and atOrAfter a target, i.e. where [beforeOrAt, atOrAfter] is satisfied.
+The result may be the same observation, or adjacent observations.</p>
+<p><em>The answer must be contained in the array, used when the target is located within the stored observation
+boundaries: older than the most recent observation and younger, or the same age as, the oldest observation</em></p>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>self</td>
+<td>struct Oracle.Observation[65535]</td>
+<td>The stored oracle array</td>
+</tr>
+<tr>
+<td>time</td>
+<td>uint32</td>
+<td>The current block.timestamp</td>
+</tr>
+<tr>
+<td>target</td>
+<td>uint32</td>
+<td>The timestamp at which the reserved observation should be for</td>
+</tr>
+<tr>
+<td>index</td>
+<td>uint16</td>
+<td>The index of the observation that was most recently written to the observations array</td>
+</tr>
+<tr>
+<td>cardinality</td>
+<td>uint16</td>
+<td>The number of populated elements in the oracle array</td>
+</tr>
+</tbody>
+</table>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>beforeOrAt</td>
+<td>struct Oracle.Observation</td>
+<td>The observation recorded before, or at, the target</td>
+</tr>
+<tr>
+<td>atOrAfter</td>
+<td>struct Oracle.Observation</td>
+<td>The observation recorded at, or after, the target</td>
+</tr>
+</tbody>
+</table>
+<h3 id="getsurroundingobservations">getSurroundingObservations</h3>
+<pre><code class="language-solidity">function getSurroundingObservations(struct Oracle.Observation[65535] self, uint32 time, uint32 target, int24 tick, uint16 index, uint128 liquidity, uint16 cardinality) private view returns (struct Oracle.Observation beforeOrAt, struct Oracle.Observation atOrAfter)
+</code></pre>
+<p>Fetches the observations beforeOrAt and atOrAfter a given target, i.e. where [beforeOrAt, atOrAfter] is satisfied</p>
+<p><em>Assumes there is at least 1 initialized observation.
+Used by observeSingle() to compute the counterfactual accumulator values as of a given block timestamp.</em></p>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>self</td>
+<td>struct Oracle.Observation[65535]</td>
+<td>The stored oracle array</td>
+</tr>
+<tr>
+<td>time</td>
+<td>uint32</td>
+<td>The current block.timestamp</td>
+</tr>
+<tr>
+<td>target</td>
+<td>uint32</td>
+<td>The timestamp at which the reserved observation should be for</td>
+</tr>
+<tr>
+<td>tick</td>
+<td>int24</td>
+<td>The active tick at the time of the returned or simulated observation</td>
+</tr>
+<tr>
+<td>index</td>
+<td>uint16</td>
+<td>The index of the observation that was most recently written to the observations array</td>
+</tr>
+<tr>
+<td>liquidity</td>
+<td>uint128</td>
+<td>The total pool liquidity at the time of the call</td>
+</tr>
+<tr>
+<td>cardinality</td>
+<td>uint16</td>
+<td>The number of populated elements in the oracle array</td>
+</tr>
+</tbody>
+</table>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>beforeOrAt</td>
+<td>struct Oracle.Observation</td>
+<td>The observation which occurred at, or before, the given timestamp</td>
+</tr>
+<tr>
+<td>atOrAfter</td>
+<td>struct Oracle.Observation</td>
+<td>The observation which occurred at, or after, the given timestamp</td>
+</tr>
+</tbody>
+</table>
+<h3 id="observesingle">observeSingle</h3>
+<pre><code class="language-solidity">function observeSingle(struct Oracle.Observation[65535] self, uint32 time, uint32 secondsAgo, int24 tick, uint16 index, uint128 liquidity, uint16 cardinality) internal view returns (int56 tickCumulative, uint160 secondsPerLiquidityCumulativeX128)
+</code></pre>
+<p><em>Reverts if an observation at or before the desired observation timestamp does not exist.
+0 may be passed as `secondsAgo' to return the current cumulative values.
+If called with a timestamp falling between two observations, returns the counterfactual accumulator values
+at exactly the timestamp between the two observations.</em></p>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>self</td>
+<td>struct Oracle.Observation[65535]</td>
+<td>The stored oracle array</td>
+</tr>
+<tr>
+<td>time</td>
+<td>uint32</td>
+<td>The current block timestamp</td>
+</tr>
+<tr>
+<td>secondsAgo</td>
+<td>uint32</td>
+<td>The amount of time to look back, in seconds, at which point to return an observation</td>
+</tr>
+<tr>
+<td>tick</td>
+<td>int24</td>
+<td>The current tick</td>
+</tr>
+<tr>
+<td>index</td>
+<td>uint16</td>
+<td>The index of the observation that was most recently written to the observations array</td>
+</tr>
+<tr>
+<td>liquidity</td>
+<td>uint128</td>
+<td>The current in-range pool liquidity</td>
+</tr>
+<tr>
+<td>cardinality</td>
+<td>uint16</td>
+<td>The number of populated elements in the oracle array</td>
+</tr>
+</tbody>
+</table>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>tickCumulative</td>
+<td>int56</td>
+<td>The tick * time elapsed since the pool was first initialized, as of <code>secondsAgo</code></td>
+</tr>
+<tr>
+<td>secondsPerLiquidityCumulativeX128</td>
+<td>uint160</td>
+<td>The time elapsed / max(1, liquidity) since the pool was first initialized, as of <code>secondsAgo</code></td>
+</tr>
+</tbody>
+</table>
+<h3 id="observe">observe</h3>
+<pre><code class="language-solidity">function observe(struct Oracle.Observation[65535] self, uint32 time, uint32[] secondsAgos, int24 tick, uint16 index, uint128 liquidity, uint16 cardinality) internal view returns (int56[] tickCumulatives, uint160[] secondsPerLiquidityCumulativeX128s)
+</code></pre>
+<p>Returns the accumulator values as of each time seconds ago from the given time in the array of <code>secondsAgos</code></p>
+<p><em>Reverts if <code>secondsAgos</code> &gt; oldest observation</em></p>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>self</td>
+<td>struct Oracle.Observation[65535]</td>
+<td>The stored oracle array</td>
+</tr>
+<tr>
+<td>time</td>
+<td>uint32</td>
+<td>The current block.timestamp</td>
+</tr>
+<tr>
+<td>secondsAgos</td>
+<td>uint32[]</td>
+<td>Each amount of time to look back, in seconds, at which point to return an observation</td>
+</tr>
+<tr>
+<td>tick</td>
+<td>int24</td>
+<td>The current tick</td>
+</tr>
+<tr>
+<td>index</td>
+<td>uint16</td>
+<td>The index of the observation that was most recently written to the observations array</td>
+</tr>
+<tr>
+<td>liquidity</td>
+<td>uint128</td>
+<td>The current in-range pool liquidity</td>
+</tr>
+<tr>
+<td>cardinality</td>
+<td>uint16</td>
+<td>The number of populated elements in the oracle array</td>
+</tr>
+</tbody>
+</table>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>tickCumulatives</td>
+<td>int56[]</td>
+<td>The tick * time elapsed since the pool was first initialized, as of each <code>secondsAgo</code></td>
+</tr>
+<tr>
+<td>secondsPerLiquidityCumulativeX128s</td>
+<td>uint160[]</td>
+<td>The cumulative seconds / max(1, liquidity) since the pool was first initialized, as of each <code>secondsAgo</code></td>
+</tr>
+</tbody>
+</table>
+              
+            </div>
+          </div><footer>
+    <div class="rst-footer-buttons" role="navigation" aria-label="Footer Navigation">
+        <a href="../LowGasSafeMath/" class="btn btn-neutral float-left" title="LowGasSafeMath"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+        <a href="../Position/" class="btn btn-neutral float-right" title="Position">Next <span class="icon icon-circle-arrow-right"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+  </div>
+
+  Built with <a href="https://www.mkdocs.org/">MkDocs</a> using a <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+          
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" aria-label="Versions">
+  <span class="rst-current-version" data-toggle="rst-current-version">
+    
+    
+      <span><a href="../LowGasSafeMath/" style="color: #fcfcfc">&laquo; Previous</a></span>
+    
+    
+      <span><a href="../Position/" style="color: #fcfcfc">Next &raquo;</a></span>
+    
+  </span>
+</div>
+    <script>var base_url = '../../..';</script>
+    <script src="../../../js/theme_extra.js" defer></script>
+    <script src="../../../js/theme.js" defer></script>
+      <script src="../../../search/main.js" defer></script>
+    <script defer>
+        window.onload = function () {
+            SphinxRtdTheme.Navigation.enable(true);
+        };
+    </script>
+
+</body>
+</html>

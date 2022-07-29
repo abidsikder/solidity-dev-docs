@@ -1,0 +1,896 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+      <link rel="shortcut icon" href="../../../../img/favicon.ico" />
+    <title>IUniswapV3PoolActions - Solidity DevDocs</title>
+    <link rel="stylesheet" href="../../../../css/theme.css" />
+    <link rel="stylesheet" href="../../../../css/theme_extra.css" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.5.0/styles/github.min.css" />
+    
+      <script>
+        // Current page data
+        var mkdocs_page_name = "IUniswapV3PoolActions";
+        var mkdocs_page_input_path = "uniswap-v3-core/interfaces/pool/IUniswapV3PoolActions.md";
+        var mkdocs_page_url = null;
+      </script>
+    
+    <script src="../../../../js/jquery-3.6.0.min.js" defer></script>
+    <!--[if lt IE 9]>
+      <script src="../../../../js/html5shiv.min.js"></script>
+    <![endif]-->
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.5.0/highlight.min.js"></script>
+      <script>hljs.initHighlightingOnLoad();</script> 
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+    <div class="wy-side-scroll">
+      <div class="wy-side-nav-search">
+          <a href="../../../.." class="icon icon-home"> Solidity DevDocs
+        </a><div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../../../../search.html" method="get">
+      <input type="text" name="q" placeholder="Search docs" title="Type search term here" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption"><span class="caption-text">Prb math</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../../../../prb-math/PRBMath/">PRBMath</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../../../prb-math/PRBMathSD59x18/">PRBMathSD59x18</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../../../prb-math/PRBMathSD59x18Typed/">PRBMathSD59x18Typed</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../../../prb-math/PRBMathUD60x18/">PRBMathUD60x18</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../../../prb-math/PRBMathUD60x18Typed/">PRBMathUD60x18Typed</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Spatial sol</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../../../../spatial-sol/Jurisdiction/">Jurisdiction</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../../../spatial-sol/LocationAware/">LocationAware</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../../../spatial-sol/Migrations/">Migrations</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../../../spatial-sol/Spatial/">Spatial</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../../../spatial-sol/Trigonometry/">Trigonometry</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Uniswap v3 core</span></p>
+              <ul class="current">
+                  <li class="toctree-l1"><a class="reference internal" href="../../../NoDelegateCall/">NoDelegateCall</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../../UniswapV3Factory/">UniswapV3Factory</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../../UniswapV3Pool/">UniswapV3Pool</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../../UniswapV3PoolDeployer/">UniswapV3PoolDeployer</a>
+                  </li>
+                  <li class="toctree-l1 current"><a class="reference internal current" href="#">Interfaces</a>
+    <ul class="current">
+                <li class="toctree-l2"><a class="reference internal" href="../../IERC20Minimal/">IERC20Minimal</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../IUniswapV3Factory/">IUniswapV3Factory</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../IUniswapV3Pool/">IUniswapV3Pool</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../IUniswapV3PoolDeployer/">IUniswapV3PoolDeployer</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="#">Callback</a>
+    <ul>
+                <li class="toctree-l3"><a class="reference internal" href="../../callback/IUniswapV3FlashCallback/">IUniswapV3FlashCallback</a>
+                </li>
+                <li class="toctree-l3"><a class="reference internal" href="../../callback/IUniswapV3MintCallback/">IUniswapV3MintCallback</a>
+                </li>
+                <li class="toctree-l3"><a class="reference internal" href="../../callback/IUniswapV3SwapCallback/">IUniswapV3SwapCallback</a>
+                </li>
+    </ul>
+                </li>
+                <li class="toctree-l2 current"><a class="reference internal current" href="#">Pool</a>
+    <ul class="current">
+                <li class="toctree-l3 current"><a class="reference internal current" href="./">IUniswapV3PoolActions</a>
+    <ul class="current">
+    <li class="toctree-l4"><a class="reference internal" href="#initialize">initialize</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#mint">mint</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#collect">collect</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#burn">burn</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#swap">swap</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#flash">flash</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#increaseobservationcardinalitynext">increaseObservationCardinalityNext</a>
+    </li>
+    </ul>
+                </li>
+                <li class="toctree-l3"><a class="reference internal" href="../IUniswapV3PoolDerivedState/">IUniswapV3PoolDerivedState</a>
+                </li>
+                <li class="toctree-l3"><a class="reference internal" href="../IUniswapV3PoolEvents/">IUniswapV3PoolEvents</a>
+                </li>
+                <li class="toctree-l3"><a class="reference internal" href="../IUniswapV3PoolImmutables/">IUniswapV3PoolImmutables</a>
+                </li>
+                <li class="toctree-l3"><a class="reference internal" href="../IUniswapV3PoolOwnerActions/">IUniswapV3PoolOwnerActions</a>
+                </li>
+                <li class="toctree-l3"><a class="reference internal" href="../IUniswapV3PoolState/">IUniswapV3PoolState</a>
+                </li>
+    </ul>
+                </li>
+    </ul>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="#">Libraries</a>
+    <ul>
+                <li class="toctree-l2"><a class="reference internal" href="../../../libraries/BitMath/">BitMath</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../../libraries/FixedPoint128/">FixedPoint128</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../../libraries/FixedPoint96/">FixedPoint96</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../../libraries/FullMath/">FullMath</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../../libraries/LiquidityMath/">LiquidityMath</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../../libraries/LowGasSafeMath/">LowGasSafeMath</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../../libraries/Oracle/">Oracle</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../../libraries/Position/">Position</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../../libraries/SafeCast/">SafeCast</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../../libraries/SqrtPriceMath/">SqrtPriceMath</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../../libraries/SwapMath/">SwapMath</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../../libraries/Tick/">Tick</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../../libraries/TickBitmap/">TickBitmap</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../../libraries/TickMath/">TickMath</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../../libraries/TransferHelper/">TransferHelper</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../../libraries/UnsafeMath/">UnsafeMath</a>
+                </li>
+    </ul>
+                  </li>
+              </ul>
+      </div>
+    </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+      <nav class="wy-nav-top" role="navigation" aria-label="Mobile navigation menu">
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../../..">Solidity DevDocs</a>
+        
+      </nav>
+      <div class="wy-nav-content">
+        <div class="rst-content"><div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../../../.." class="icon icon-home" alt="Docs"></a> &raquo;</li>
+          <li>Uniswap v3 core &raquo;</li>
+          <li>Interfaces &raquo;</li>
+          <li>Pool &raquo;</li>
+      <li>IUniswapV3PoolActions</li>
+    <li class="wy-breadcrumbs-aside">
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+            <div class="section" itemprop="articleBody">
+              
+                <h2 id="iuniswapv3poolactions">IUniswapV3PoolActions</h2>
+<p>Contains pool methods that can be called by anyone</p>
+<h3 id="initialize">initialize</h3>
+<pre><code class="language-solidity">function initialize(uint160 sqrtPriceX96) external
+</code></pre>
+<p>Sets the initial price for the pool</p>
+<p><em>Price is represented as a sqrt(amountToken1/amountToken0) Q64.96 value</em></p>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>sqrtPriceX96</td>
+<td>uint160</td>
+<td>the initial sqrt price of the pool as a Q64.96</td>
+</tr>
+</tbody>
+</table>
+<h3 id="mint">mint</h3>
+<pre><code class="language-solidity">function mint(address recipient, int24 tickLower, int24 tickUpper, uint128 amount, bytes data) external returns (uint256 amount0, uint256 amount1)
+</code></pre>
+<p>Adds liquidity for the given recipient/tickLower/tickUpper position</p>
+<p><em>The caller of this method receives a callback in the form of IUniswapV3MintCallback#uniswapV3MintCallback
+in which they must pay any token0 or token1 owed for the liquidity. The amount of token0/token1 due depends
+on tickLower, tickUpper, the amount of liquidity, and the current price.</em></p>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>recipient</td>
+<td>address</td>
+<td>The address for which the liquidity will be created</td>
+</tr>
+<tr>
+<td>tickLower</td>
+<td>int24</td>
+<td>The lower tick of the position in which to add liquidity</td>
+</tr>
+<tr>
+<td>tickUpper</td>
+<td>int24</td>
+<td>The upper tick of the position in which to add liquidity</td>
+</tr>
+<tr>
+<td>amount</td>
+<td>uint128</td>
+<td>The amount of liquidity to mint</td>
+</tr>
+<tr>
+<td>data</td>
+<td>bytes</td>
+<td>Any data that should be passed through to the callback</td>
+</tr>
+</tbody>
+</table>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>amount0</td>
+<td>uint256</td>
+<td>The amount of token0 that was paid to mint the given amount of liquidity. Matches the value in the callback</td>
+</tr>
+<tr>
+<td>amount1</td>
+<td>uint256</td>
+<td>The amount of token1 that was paid to mint the given amount of liquidity. Matches the value in the callback</td>
+</tr>
+</tbody>
+</table>
+<h3 id="collect">collect</h3>
+<pre><code class="language-solidity">function collect(address recipient, int24 tickLower, int24 tickUpper, uint128 amount0Requested, uint128 amount1Requested) external returns (uint128 amount0, uint128 amount1)
+</code></pre>
+<p>Collects tokens owed to a position</p>
+<p><em>Does not recompute fees earned, which must be done either via mint or burn of any amount of liquidity.
+Collect must be called by the position owner. To withdraw only token0 or only token1, amount0Requested or
+amount1Requested may be set to zero. To withdraw all tokens owed, caller may pass any value greater than the
+actual tokens owed, e.g. type(uint128).max. Tokens owed may be from accumulated swap fees or burned liquidity.</em></p>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>recipient</td>
+<td>address</td>
+<td>The address which should receive the fees collected</td>
+</tr>
+<tr>
+<td>tickLower</td>
+<td>int24</td>
+<td>The lower tick of the position for which to collect fees</td>
+</tr>
+<tr>
+<td>tickUpper</td>
+<td>int24</td>
+<td>The upper tick of the position for which to collect fees</td>
+</tr>
+<tr>
+<td>amount0Requested</td>
+<td>uint128</td>
+<td>How much token0 should be withdrawn from the fees owed</td>
+</tr>
+<tr>
+<td>amount1Requested</td>
+<td>uint128</td>
+<td>How much token1 should be withdrawn from the fees owed</td>
+</tr>
+</tbody>
+</table>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>amount0</td>
+<td>uint128</td>
+<td>The amount of fees collected in token0</td>
+</tr>
+<tr>
+<td>amount1</td>
+<td>uint128</td>
+<td>The amount of fees collected in token1</td>
+</tr>
+</tbody>
+</table>
+<h3 id="burn">burn</h3>
+<pre><code class="language-solidity">function burn(int24 tickLower, int24 tickUpper, uint128 amount) external returns (uint256 amount0, uint256 amount1)
+</code></pre>
+<p>Burn liquidity from the sender and account tokens owed for the liquidity to the position</p>
+<p><em>Can be used to trigger a recalculation of fees owed to a position by calling with an amount of 0
+Fees must be collected separately via a call to #collect</em></p>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>tickLower</td>
+<td>int24</td>
+<td>The lower tick of the position for which to burn liquidity</td>
+</tr>
+<tr>
+<td>tickUpper</td>
+<td>int24</td>
+<td>The upper tick of the position for which to burn liquidity</td>
+</tr>
+<tr>
+<td>amount</td>
+<td>uint128</td>
+<td>How much liquidity to burn</td>
+</tr>
+</tbody>
+</table>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>amount0</td>
+<td>uint256</td>
+<td>The amount of token0 sent to the recipient</td>
+</tr>
+<tr>
+<td>amount1</td>
+<td>uint256</td>
+<td>The amount of token1 sent to the recipient</td>
+</tr>
+</tbody>
+</table>
+<h3 id="swap">swap</h3>
+<pre><code class="language-solidity">function swap(address recipient, bool zeroForOne, int256 amountSpecified, uint160 sqrtPriceLimitX96, bytes data) external returns (int256 amount0, int256 amount1)
+</code></pre>
+<p>Swap token0 for token1, or token1 for token0</p>
+<p><em>The caller of this method receives a callback in the form of IUniswapV3SwapCallback#uniswapV3SwapCallback</em></p>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>recipient</td>
+<td>address</td>
+<td>The address to receive the output of the swap</td>
+</tr>
+<tr>
+<td>zeroForOne</td>
+<td>bool</td>
+<td>The direction of the swap, true for token0 to token1, false for token1 to token0</td>
+</tr>
+<tr>
+<td>amountSpecified</td>
+<td>int256</td>
+<td>The amount of the swap, which implicitly configures the swap as exact input (positive), or exact output (negative)</td>
+</tr>
+<tr>
+<td>sqrtPriceLimitX96</td>
+<td>uint160</td>
+<td>The Q64.96 sqrt price limit. If zero for one, the price cannot be less than this value after the swap. If one for zero, the price cannot be greater than this value after the swap</td>
+</tr>
+<tr>
+<td>data</td>
+<td>bytes</td>
+<td>Any data to be passed through to the callback</td>
+</tr>
+</tbody>
+</table>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>amount0</td>
+<td>int256</td>
+<td>The delta of the balance of token0 of the pool, exact when negative, minimum when positive</td>
+</tr>
+<tr>
+<td>amount1</td>
+<td>int256</td>
+<td>The delta of the balance of token1 of the pool, exact when negative, minimum when positive</td>
+</tr>
+</tbody>
+</table>
+<h3 id="flash">flash</h3>
+<pre><code class="language-solidity">function flash(address recipient, uint256 amount0, uint256 amount1, bytes data) external
+</code></pre>
+<p>Receive token0 and/or token1 and pay it back, plus a fee, in the callback</p>
+<p><em>The caller of this method receives a callback in the form of IUniswapV3FlashCallback#uniswapV3FlashCallback
+Can be used to donate underlying tokens pro-rata to currently in-range liquidity providers by calling
+with 0 amount{0,1} and sending the donation amount(s) from the callback</em></p>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>recipient</td>
+<td>address</td>
+<td>The address which will receive the token0 and token1 amounts</td>
+</tr>
+<tr>
+<td>amount0</td>
+<td>uint256</td>
+<td>The amount of token0 to send</td>
+</tr>
+<tr>
+<td>amount1</td>
+<td>uint256</td>
+<td>The amount of token1 to send</td>
+</tr>
+<tr>
+<td>data</td>
+<td>bytes</td>
+<td>Any data to be passed through to the callback</td>
+</tr>
+</tbody>
+</table>
+<h3 id="increaseobservationcardinalitynext">increaseObservationCardinalityNext</h3>
+<pre><code class="language-solidity">function increaseObservationCardinalityNext(uint16 observationCardinalityNext) external
+</code></pre>
+<p>Increase the maximum number of price and liquidity observations that this pool will store</p>
+<p><em>This method is no-op if the pool already has an observationCardinalityNext greater than or equal to
+the input observationCardinalityNext.</em></p>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>observationCardinalityNext</td>
+<td>uint16</td>
+<td>The desired minimum number of observations for the pool to store</td>
+</tr>
+</tbody>
+</table>
+<h2 id="iuniswapv3poolactions_1">IUniswapV3PoolActions</h2>
+<p>Contains pool methods that can be called by anyone</p>
+<h3 id="initialize_1">initialize</h3>
+<pre><code class="language-solidity">function initialize(uint160 sqrtPriceX96) external
+</code></pre>
+<p>Sets the initial price for the pool</p>
+<p><em>Price is represented as a sqrt(amountToken1/amountToken0) Q64.96 value</em></p>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>sqrtPriceX96</td>
+<td>uint160</td>
+<td>the initial sqrt price of the pool as a Q64.96</td>
+</tr>
+</tbody>
+</table>
+<h3 id="mint_1">mint</h3>
+<pre><code class="language-solidity">function mint(address recipient, int24 tickLower, int24 tickUpper, uint128 amount, bytes data) external returns (uint256 amount0, uint256 amount1)
+</code></pre>
+<p>Adds liquidity for the given recipient/tickLower/tickUpper position</p>
+<p><em>The caller of this method receives a callback in the form of IUniswapV3MintCallback#uniswapV3MintCallback
+in which they must pay any token0 or token1 owed for the liquidity. The amount of token0/token1 due depends
+on tickLower, tickUpper, the amount of liquidity, and the current price.</em></p>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>recipient</td>
+<td>address</td>
+<td>The address for which the liquidity will be created</td>
+</tr>
+<tr>
+<td>tickLower</td>
+<td>int24</td>
+<td>The lower tick of the position in which to add liquidity</td>
+</tr>
+<tr>
+<td>tickUpper</td>
+<td>int24</td>
+<td>The upper tick of the position in which to add liquidity</td>
+</tr>
+<tr>
+<td>amount</td>
+<td>uint128</td>
+<td>The amount of liquidity to mint</td>
+</tr>
+<tr>
+<td>data</td>
+<td>bytes</td>
+<td>Any data that should be passed through to the callback</td>
+</tr>
+</tbody>
+</table>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>amount0</td>
+<td>uint256</td>
+<td>The amount of token0 that was paid to mint the given amount of liquidity. Matches the value in the callback</td>
+</tr>
+<tr>
+<td>amount1</td>
+<td>uint256</td>
+<td>The amount of token1 that was paid to mint the given amount of liquidity. Matches the value in the callback</td>
+</tr>
+</tbody>
+</table>
+<h3 id="collect_1">collect</h3>
+<pre><code class="language-solidity">function collect(address recipient, int24 tickLower, int24 tickUpper, uint128 amount0Requested, uint128 amount1Requested) external returns (uint128 amount0, uint128 amount1)
+</code></pre>
+<p>Collects tokens owed to a position</p>
+<p><em>Does not recompute fees earned, which must be done either via mint or burn of any amount of liquidity.
+Collect must be called by the position owner. To withdraw only token0 or only token1, amount0Requested or
+amount1Requested may be set to zero. To withdraw all tokens owed, caller may pass any value greater than the
+actual tokens owed, e.g. type(uint128).max. Tokens owed may be from accumulated swap fees or burned liquidity.</em></p>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>recipient</td>
+<td>address</td>
+<td>The address which should receive the fees collected</td>
+</tr>
+<tr>
+<td>tickLower</td>
+<td>int24</td>
+<td>The lower tick of the position for which to collect fees</td>
+</tr>
+<tr>
+<td>tickUpper</td>
+<td>int24</td>
+<td>The upper tick of the position for which to collect fees</td>
+</tr>
+<tr>
+<td>amount0Requested</td>
+<td>uint128</td>
+<td>How much token0 should be withdrawn from the fees owed</td>
+</tr>
+<tr>
+<td>amount1Requested</td>
+<td>uint128</td>
+<td>How much token1 should be withdrawn from the fees owed</td>
+</tr>
+</tbody>
+</table>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>amount0</td>
+<td>uint128</td>
+<td>The amount of fees collected in token0</td>
+</tr>
+<tr>
+<td>amount1</td>
+<td>uint128</td>
+<td>The amount of fees collected in token1</td>
+</tr>
+</tbody>
+</table>
+<h3 id="burn_1">burn</h3>
+<pre><code class="language-solidity">function burn(int24 tickLower, int24 tickUpper, uint128 amount) external returns (uint256 amount0, uint256 amount1)
+</code></pre>
+<p>Burn liquidity from the sender and account tokens owed for the liquidity to the position</p>
+<p><em>Can be used to trigger a recalculation of fees owed to a position by calling with an amount of 0
+Fees must be collected separately via a call to #collect</em></p>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>tickLower</td>
+<td>int24</td>
+<td>The lower tick of the position for which to burn liquidity</td>
+</tr>
+<tr>
+<td>tickUpper</td>
+<td>int24</td>
+<td>The upper tick of the position for which to burn liquidity</td>
+</tr>
+<tr>
+<td>amount</td>
+<td>uint128</td>
+<td>How much liquidity to burn</td>
+</tr>
+</tbody>
+</table>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>amount0</td>
+<td>uint256</td>
+<td>The amount of token0 sent to the recipient</td>
+</tr>
+<tr>
+<td>amount1</td>
+<td>uint256</td>
+<td>The amount of token1 sent to the recipient</td>
+</tr>
+</tbody>
+</table>
+<h3 id="swap_1">swap</h3>
+<pre><code class="language-solidity">function swap(address recipient, bool zeroForOne, int256 amountSpecified, uint160 sqrtPriceLimitX96, bytes data) external returns (int256 amount0, int256 amount1)
+</code></pre>
+<p>Swap token0 for token1, or token1 for token0</p>
+<p><em>The caller of this method receives a callback in the form of IUniswapV3SwapCallback#uniswapV3SwapCallback</em></p>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>recipient</td>
+<td>address</td>
+<td>The address to receive the output of the swap</td>
+</tr>
+<tr>
+<td>zeroForOne</td>
+<td>bool</td>
+<td>The direction of the swap, true for token0 to token1, false for token1 to token0</td>
+</tr>
+<tr>
+<td>amountSpecified</td>
+<td>int256</td>
+<td>The amount of the swap, which implicitly configures the swap as exact input (positive), or exact output (negative)</td>
+</tr>
+<tr>
+<td>sqrtPriceLimitX96</td>
+<td>uint160</td>
+<td>The Q64.96 sqrt price limit. If zero for one, the price cannot be less than this value after the swap. If one for zero, the price cannot be greater than this value after the swap</td>
+</tr>
+<tr>
+<td>data</td>
+<td>bytes</td>
+<td>Any data to be passed through to the callback</td>
+</tr>
+</tbody>
+</table>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>amount0</td>
+<td>int256</td>
+<td>The delta of the balance of token0 of the pool, exact when negative, minimum when positive</td>
+</tr>
+<tr>
+<td>amount1</td>
+<td>int256</td>
+<td>The delta of the balance of token1 of the pool, exact when negative, minimum when positive</td>
+</tr>
+</tbody>
+</table>
+<h3 id="flash_1">flash</h3>
+<pre><code class="language-solidity">function flash(address recipient, uint256 amount0, uint256 amount1, bytes data) external
+</code></pre>
+<p>Receive token0 and/or token1 and pay it back, plus a fee, in the callback</p>
+<p><em>The caller of this method receives a callback in the form of IUniswapV3FlashCallback#uniswapV3FlashCallback
+Can be used to donate underlying tokens pro-rata to currently in-range liquidity providers by calling
+with 0 amount{0,1} and sending the donation amount(s) from the callback</em></p>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>recipient</td>
+<td>address</td>
+<td>The address which will receive the token0 and token1 amounts</td>
+</tr>
+<tr>
+<td>amount0</td>
+<td>uint256</td>
+<td>The amount of token0 to send</td>
+</tr>
+<tr>
+<td>amount1</td>
+<td>uint256</td>
+<td>The amount of token1 to send</td>
+</tr>
+<tr>
+<td>data</td>
+<td>bytes</td>
+<td>Any data to be passed through to the callback</td>
+</tr>
+</tbody>
+</table>
+<h3 id="increaseobservationcardinalitynext_1">increaseObservationCardinalityNext</h3>
+<pre><code class="language-solidity">function increaseObservationCardinalityNext(uint16 observationCardinalityNext) external
+</code></pre>
+<p>Increase the maximum number of price and liquidity observations that this pool will store</p>
+<p><em>This method is no-op if the pool already has an observationCardinalityNext greater than or equal to
+the input observationCardinalityNext.</em></p>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>observationCardinalityNext</td>
+<td>uint16</td>
+<td>The desired minimum number of observations for the pool to store</td>
+</tr>
+</tbody>
+</table>
+              
+            </div>
+          </div><footer>
+    <div class="rst-footer-buttons" role="navigation" aria-label="Footer Navigation">
+        <a href="../../callback/IUniswapV3SwapCallback/" class="btn btn-neutral float-left" title="IUniswapV3SwapCallback"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+        <a href="../IUniswapV3PoolDerivedState/" class="btn btn-neutral float-right" title="IUniswapV3PoolDerivedState">Next <span class="icon icon-circle-arrow-right"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+  </div>
+
+  Built with <a href="https://www.mkdocs.org/">MkDocs</a> using a <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+          
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" aria-label="Versions">
+  <span class="rst-current-version" data-toggle="rst-current-version">
+    
+    
+      <span><a href="../../callback/IUniswapV3SwapCallback/" style="color: #fcfcfc">&laquo; Previous</a></span>
+    
+    
+      <span><a href="../IUniswapV3PoolDerivedState/" style="color: #fcfcfc">Next &raquo;</a></span>
+    
+  </span>
+</div>
+    <script>var base_url = '../../../..';</script>
+    <script src="../../../../js/theme_extra.js" defer></script>
+    <script src="../../../../js/theme.js" defer></script>
+      <script src="../../../../search/main.js" defer></script>
+    <script defer>
+        window.onload = function () {
+            SphinxRtdTheme.Navigation.enable(true);
+        };
+    </script>
+
+</body>
+</html>
