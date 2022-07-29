@@ -13,7 +13,7 @@
       <script>
         // Current page data
         var mkdocs_page_name = "Trigonometry";
-        var mkdocs_page_input_path = "spatial-sol/Trigonometry.md";
+        var mkdocs_page_input_path = "solidity-trigonometry/Trigonometry.md";
         var mkdocs_page_url = null;
       </script>
     
@@ -54,20 +54,7 @@
                   </li>
               </ul>
               <p class="caption"><span class="caption-text">Solidity trigonometry</span></p>
-              <ul>
-                  <li class="toctree-l1"><a class="reference internal" href="../../solidity-trigonometry/Trigonometry/">Trigonometry</a>
-                  </li>
-              </ul>
-              <p class="caption"><span class="caption-text">Spatial sol</span></p>
               <ul class="current">
-                  <li class="toctree-l1"><a class="reference internal" href="../Jurisdiction/">Jurisdiction</a>
-                  </li>
-                  <li class="toctree-l1"><a class="reference internal" href="../LocationAware/">LocationAware</a>
-                  </li>
-                  <li class="toctree-l1"><a class="reference internal" href="../Migrations/">Migrations</a>
-                  </li>
-                  <li class="toctree-l1"><a class="reference internal" href="../Spatial/">Spatial</a>
-                  </li>
                   <li class="toctree-l1 current"><a class="reference internal current" href="./">Trigonometry</a>
     <ul class="current">
     <li class="toctree-l2"><a class="reference internal" href="#index_width">INDEX_WIDTH</a>
@@ -86,19 +73,36 @@
     </li>
     <li class="toctree-l2"><a class="reference internal" href="#sine_table_size">SINE_TABLE_SIZE</a>
     </li>
+    <li class="toctree-l2"><a class="reference internal" href="#pi">PI</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#two_pi">TWO_PI</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#pi_over_two">PI_OVER_TWO</a>
+    </li>
     <li class="toctree-l2"><a class="reference internal" href="#entry_bytes">entry_bytes</a>
     </li>
+    <li class="toctree-l2"><a class="reference internal" href="#entry_mask">entry_mask</a>
+    </li>
     <li class="toctree-l2"><a class="reference internal" href="#sin_table">sin_table</a>
-    </li>
-    <li class="toctree-l2"><a class="reference internal" href="#bits">bits</a>
-    </li>
-    <li class="toctree-l2"><a class="reference internal" href="#sin_table_lookup">sin_table_lookup</a>
     </li>
     <li class="toctree-l2"><a class="reference internal" href="#sin">sin</a>
     </li>
     <li class="toctree-l2"><a class="reference internal" href="#cos">cos</a>
     </li>
     </ul>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Spatial sol</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../../spatial-sol/Jurisdiction/">Jurisdiction</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../spatial-sol/LocationAware/">LocationAware</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../spatial-sol/Migrations/">Migrations</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../spatial-sol/Spatial/">Spatial</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../spatial-sol/Trigonometry/">Trigonometry</a>
                   </li>
               </ul>
               <p class="caption"><span class="caption-text">Uniswap v3 core</span></p>
@@ -200,7 +204,7 @@
         <div class="rst-content"><div role="navigation" aria-label="breadcrumbs navigation">
   <ul class="wy-breadcrumbs">
     <li><a href="../.." class="icon icon-home" alt="Docs"></a> &raquo;</li>
-          <li>Spatial sol &raquo;</li>
+          <li>Solidity trigonometry &raquo;</li>
       <li>Trigonometry</li>
     <li class="wy-breadcrumbs-aside">
     </li>
@@ -211,6 +215,20 @@
             <div class="section" itemprop="articleBody">
               
                 <h2 id="trigonometry">Trigonometry</h2>
+<p>Solidity library offering basic trigonometry functions where inputs and outputs are
+integers. Inputs are specified in radians scaled by 1e18, and similarly outputs are scaled by 1e18.</p>
+<p>This implementation is based off the Solidity trigonometry library written by Lefteris Karapetsas
+which can be found here: https://github.com/Sikorkaio/sikorka/blob/e75c91925c914beaedf4841c0336a806f2b5f66d/contracts/trigonometry.sol</p>
+<p>Compared to Lefteris' implementation, this version makes the following changes:
+  - Uses a 32 bits instead of 16 bits for improved accuracy
+  - Updated for Solidity 0.8.x
+  - Various gas optimizations
+  - Change inputs/outputs to standard trig format (scaled by 1e18) instead of requiring the
+    integer format used by the algorithm</p>
+<p>Lefertis' implementation is based off Dave Dribin's trigint C library
+    http://www.dribin.org/dave/trigint/</p>
+<p>Which in turn is based from a now deleted article which can be found in the Wayback Machine:
+    http://web.archive.org/web/20120301144605/http://www.dattalo.com/technical/software/pic/picsine.html</p>
 <h3 id="index_width">INDEX_WIDTH</h3>
 <pre><code class="language-solidity">uint256 INDEX_WIDTH
 </code></pre>
@@ -224,79 +242,44 @@
 <pre><code class="language-solidity">uint256 INTERP_OFFSET
 </code></pre>
 <h3 id="angles_in_cycle">ANGLES_IN_CYCLE</h3>
-<pre><code class="language-solidity">uint16 ANGLES_IN_CYCLE
+<pre><code class="language-solidity">uint32 ANGLES_IN_CYCLE
 </code></pre>
 <h3 id="quadrant_high_mask">QUADRANT_HIGH_MASK</h3>
-<pre><code class="language-solidity">uint16 QUADRANT_HIGH_MASK
+<pre><code class="language-solidity">uint32 QUADRANT_HIGH_MASK
 </code></pre>
 <h3 id="quadrant_low_mask">QUADRANT_LOW_MASK</h3>
-<pre><code class="language-solidity">uint16 QUADRANT_LOW_MASK
+<pre><code class="language-solidity">uint32 QUADRANT_LOW_MASK
 </code></pre>
 <h3 id="sine_table_size">SINE_TABLE_SIZE</h3>
 <pre><code class="language-solidity">uint256 SINE_TABLE_SIZE
 </code></pre>
+<h3 id="pi">PI</h3>
+<pre><code class="language-solidity">uint256 PI
+</code></pre>
+<h3 id="two_pi">TWO_PI</h3>
+<pre><code class="language-solidity">uint256 TWO_PI
+</code></pre>
+<h3 id="pi_over_two">PI_OVER_TWO</h3>
+<pre><code class="language-solidity">uint256 PI_OVER_TWO
+</code></pre>
 <h3 id="entry_bytes">entry_bytes</h3>
 <pre><code class="language-solidity">uint8 entry_bytes
+</code></pre>
+<h3 id="entry_mask">entry_mask</h3>
+<pre><code class="language-solidity">uint256 entry_mask
 </code></pre>
 <h3 id="sin_table">sin_table</h3>
 <pre><code class="language-solidity">bytes sin_table
 </code></pre>
-<h3 id="bits">bits</h3>
-<pre><code class="language-solidity">function bits(uint256 _value, uint256 _width, uint256 _offset) internal pure returns (uint256)
-</code></pre>
-<p>Convenience function to apply a mask on an integer to extract a certain
-number of bits. Using exponents since solidity still does not support
-shifting.</p>
-<table>
-<thead>
-<tr>
-<th>Name</th>
-<th>Type</th>
-<th>Description</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>_value</td>
-<td>uint256</td>
-<td>The integer whose bits we want to get</td>
-</tr>
-<tr>
-<td>_width</td>
-<td>uint256</td>
-<td>The width of the bits (in bits) we want to extract</td>
-</tr>
-<tr>
-<td>_offset</td>
-<td>uint256</td>
-<td>The offset of the bits (in bits) we want to extract</td>
-</tr>
-</tbody>
-</table>
-<table>
-<thead>
-<tr>
-<th>Name</th>
-<th>Type</th>
-<th>Description</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>[0]</td>
-<td>uint256</td>
-<td>An integer containing _width bits of _value starting at the         _offset bit</td>
-</tr>
-</tbody>
-</table>
-<h3 id="sin_table_lookup">sin_table_lookup</h3>
-<pre><code class="language-solidity">function sin_table_lookup(uint256 index) internal pure returns (uint16)
-</code></pre>
 <h3 id="sin">sin</h3>
-<pre><code class="language-solidity">function sin(uint16 _angle) public pure returns (int256)
+<pre><code class="language-solidity">function sin(uint256 _angle) internal pure returns (int256)
 </code></pre>
-<p>Return the sine of an integer approximated angle as a signed 16-bit
-integer.</p>
+<p>Return the sine of a value, specified in radians scaled by 1e18</p>
+<p><em>This algorithm for converting sine only uses integer values, and it works by dividing the
+circle into 30 bit angles, i.e. there are 1,073,741,824 (2^30) angle units, instead of the
+standard 360 degrees (2pi radians). From there, we get an output in range -2,147,483,647 to
+2,147,483,647, (which is the max value of an int32) which is then converted back to the standard
+range of -1 to 1, again scaled by 1e18</em></p>
 <table>
 <thead>
 <tr>
@@ -308,8 +291,8 @@ integer.</p>
 <tbody>
 <tr>
 <td>_angle</td>
-<td>uint16</td>
-<td>A 16-bit angle. This divides the circle into 16384               angle units, instead of the standard 360 degrees.</td>
+<td>uint256</td>
+<td>Angle to convert</td>
 </tr>
 </tbody>
 </table>
@@ -325,22 +308,55 @@ integer.</p>
 <tr>
 <td>[0]</td>
 <td>int256</td>
-<td>The sine result as a number in the range -32767 to 32767.</td>
+<td>Result scaled by 1e18</td>
 </tr>
 </tbody>
 </table>
 <h3 id="cos">cos</h3>
-<pre><code class="language-solidity">function cos(uint16 _angle) public pure returns (int256)
+<pre><code class="language-solidity">function cos(uint256 _angle) internal pure returns (int256)
 </code></pre>
-<p>Return the cos of an integer approximated angle.
-It functions just like the sin() method but uses the trigonometric
-identity sin(x + pi/2) = cos(x) to quickly calculate the cos.</p>
+<p>Return the cosine of a value, specified in radians scaled by 1e18</p>
+<p><em>This is identical to the sin() method, and just computes the value by delegating to the
+sin() method using the identity cos(x) = sin(x + pi/2)
+Overflow when <code>angle + PI_OVER_TWO &gt; type(uint256).max</code> is ok, results are still accurate</em></p>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>_angle</td>
+<td>uint256</td>
+<td>Angle to convert</td>
+</tr>
+</tbody>
+</table>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>[0]</td>
+<td>int256</td>
+<td>Result scaled by 1e18</td>
+</tr>
+</tbody>
+</table>
               
             </div>
           </div><footer>
     <div class="rst-footer-buttons" role="navigation" aria-label="Footer Navigation">
-        <a href="../Spatial/" class="btn btn-neutral float-left" title="Spatial"><span class="icon icon-circle-arrow-left"></span> Previous</a>
-        <a href="../../uniswap-v3-core/NoDelegateCall/" class="btn btn-neutral float-right" title="NoDelegateCall">Next <span class="icon icon-circle-arrow-right"></span></a>
+        <a href="../../prb-math/PRBMathUD60x18Typed/" class="btn btn-neutral float-left" title="PRBMathUD60x18Typed"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+        <a href="../../spatial-sol/Jurisdiction/" class="btn btn-neutral float-right" title="Jurisdiction">Next <span class="icon icon-circle-arrow-right"></span></a>
     </div>
 
   <hr/>
@@ -363,10 +379,10 @@ identity sin(x + pi/2) = cos(x) to quickly calculate the cos.</p>
   <span class="rst-current-version" data-toggle="rst-current-version">
     
     
-      <span><a href="../Spatial/" style="color: #fcfcfc">&laquo; Previous</a></span>
+      <span><a href="../../prb-math/PRBMathUD60x18Typed/" style="color: #fcfcfc">&laquo; Previous</a></span>
     
     
-      <span><a href="../../uniswap-v3-core/NoDelegateCall/" style="color: #fcfcfc">Next &raquo;</a></span>
+      <span><a href="../../spatial-sol/Jurisdiction/" style="color: #fcfcfc">Next &raquo;</a></span>
     
   </span>
 </div>

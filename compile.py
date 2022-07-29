@@ -7,7 +7,8 @@ import shutil
 contract_locations = {
     "prb-math" : "contracts",
     "spatial-sol" : "contracts",
-    "uniswap-v3-core" : "contracts"
+    "uniswap-v3-core" : "contracts",
+    "solidity-trigonometry" : "src"
 }
 
 contract_paths = {}

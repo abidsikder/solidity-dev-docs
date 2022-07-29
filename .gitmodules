@@ -7,3 +7,6 @@
 [submodule "projects/uniswap-v3-core"]
 	path = projects/uniswap-v3-core
 	url = https://github.com/Uniswap/v3-core.git
+[submodule "projects/solidity-trigonometry"]
+	path = projects/solidity-trigonometry
+	url = https://github.com/mds1/solidity-trigonometry
