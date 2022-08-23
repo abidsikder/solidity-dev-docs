@@ -6,4 +6,4 @@
 	url = https://github.com/AstralProtocol/spatial-sol.git
 [submodule "projects/solidity-trigonometry"]
 	path = projects/solidity-trigonometry
-	url = https://github.com/mds1/solidity-trigonometry
+	url = https://github.com/abidsikder/solidity-trigonometry.git
