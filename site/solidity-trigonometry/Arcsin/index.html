@@ -5,15 +5,15 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
       <link rel="shortcut icon" href="../../img/favicon.ico" />
-    <title>Migrations - Solidity DevDocs</title>
+    <title>Arcsin - Solidity DevDocs</title>
     <link rel="stylesheet" href="../../css/theme.css" />
     <link rel="stylesheet" href="../../css/theme_extra.css" />
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.5.0/styles/github.min.css" />
     
       <script>
         // Current page data
-        var mkdocs_page_name = "Migrations";
-        var mkdocs_page_input_path = "spatial-sol/Migrations.md";
+        var mkdocs_page_name = "Arcsin";
+        var mkdocs_page_input_path = "solidity-trigonometry/Arcsin.md";
         var mkdocs_page_url = null;
       </script>
     
@@ -54,37 +54,31 @@
                   </li>
               </ul>
               <p class="caption"><span class="caption-text">Solidity trigonometry</span></p>
-              <ul>
-                  <li class="toctree-l1"><a class="reference internal" href="../../solidity-trigonometry/Arcsin/">Arcsin</a>
-                  </li>
-                  <li class="toctree-l1"><a class="reference internal" href="../../solidity-trigonometry/Trigonometry/">Trigonometry</a>
-                  </li>
-              </ul>
-              <p class="caption"><span class="caption-text">Spatial sol</span></p>
               <ul class="current">
-                  <li class="toctree-l1"><a class="reference internal" href="../Jurisdiction/">Jurisdiction</a>
-                  </li>
-                  <li class="toctree-l1"><a class="reference internal" href="../LocationAware/">LocationAware</a>
-                  </li>
-                  <li class="toctree-l1 current"><a class="reference internal current" href="./">Migrations</a>
+                  <li class="toctree-l1 current"><a class="reference internal current" href="./">Arcsin</a>
     <ul class="current">
-    <li class="toctree-l2"><a class="reference internal" href="#owner">owner</a>
+    <li class="toctree-l2"><a class="reference internal" href="#g">g</a>
     </li>
-    <li class="toctree-l2"><a class="reference internal" href="#last_completed_migration">last_completed_migration</a>
+    <li class="toctree-l2"><a class="reference internal" href="#f">f</a>
     </li>
-    <li class="toctree-l2"><a class="reference internal" href="#constructor">constructor</a>
-    </li>
-    <li class="toctree-l2"><a class="reference internal" href="#restricted">restricted</a>
-    </li>
-    <li class="toctree-l2"><a class="reference internal" href="#setcompleted">setCompleted</a>
-    </li>
-    <li class="toctree-l2"><a class="reference internal" href="#upgrade">upgrade</a>
+    <li class="toctree-l2"><a class="reference internal" href="#arcsin_1">arcsin</a>
     </li>
     </ul>
                   </li>
-                  <li class="toctree-l1"><a class="reference internal" href="../Spatial/">Spatial</a>
-                  </li>
                   <li class="toctree-l1"><a class="reference internal" href="../Trigonometry/">Trigonometry</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Spatial sol</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../../spatial-sol/Jurisdiction/">Jurisdiction</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../spatial-sol/LocationAware/">LocationAware</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../spatial-sol/Migrations/">Migrations</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../spatial-sol/Spatial/">Spatial</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../spatial-sol/Trigonometry/">Trigonometry</a>
                   </li>
               </ul>
       </div>
@@ -101,8 +95,8 @@
         <div class="rst-content"><div role="navigation" aria-label="breadcrumbs navigation">
   <ul class="wy-breadcrumbs">
     <li><a href="../.." class="icon icon-home" alt="Docs"></a> &raquo;</li>
-          <li>Spatial sol &raquo;</li>
-      <li>Migrations</li>
+          <li>Solidity trigonometry &raquo;</li>
+      <li>Arcsin</li>
     <li class="wy-breadcrumbs-aside">
     </li>
   </ul>
@@ -111,31 +105,61 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
             <div class="section" itemprop="articleBody">
               
-                <h2 id="migrations">Migrations</h2>
-<h3 id="owner">owner</h3>
-<pre><code class="language-solidity">address owner
+                <h2 id="arcsin">Arcsin</h2>
+<p>Calculates arcsine. Fuzz testing shows that relative error is always
+smaller than 0.01%. Uses the polynomial approximation functions found in
+https://dsp.stackexchange.com/a/25771, but chooses between them at x=0.4788
+due to differences in the relative errors as can be seen here
+https://www.desmos.com/calculator/wrfwjhythe</p>
+<p><em>See the desmos link for what functions f and g in the code refer to.</em></p>
+<h3 id="g">g</h3>
+<pre><code class="language-solidity">function g(int256 _x) internal pure returns (int256)
 </code></pre>
-<h3 id="last_completed_migration">last_completed_migration</h3>
-<pre><code class="language-solidity">uint256 last_completed_migration
+<h3 id="f">f</h3>
+<pre><code class="language-solidity">function f(int256 _x) internal pure returns (int256)
 </code></pre>
-<h3 id="constructor">constructor</h3>
-<pre><code class="language-solidity">constructor() public
+<h3 id="arcsin_1">arcsin</h3>
+<pre><code class="language-solidity">function arcsin(int256 _x) internal pure returns (int256)
 </code></pre>
-<h3 id="restricted">restricted</h3>
-<pre><code class="language-solidity">modifier restricted()
-</code></pre>
-<h3 id="setcompleted">setCompleted</h3>
-<pre><code class="language-solidity">function setCompleted(uint256 completed) public
-</code></pre>
-<h3 id="upgrade">upgrade</h3>
-<pre><code class="language-solidity">function upgrade(address new_address) public
-</code></pre>
+<p>Arcsine function</p>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>_x</td>
+<td>int256</td>
+<td>A integer with 18 fixed decimal points, where the whole part is bounded inside of [-1,1]</td>
+</tr>
+</tbody>
+</table>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>[0]</td>
+<td>int256</td>
+<td>The arcsine, with 18 fixed decimal points</td>
+</tr>
+</tbody>
+</table>
               
             </div>
           </div><footer>
     <div class="rst-footer-buttons" role="navigation" aria-label="Footer Navigation">
-        <a href="../LocationAware/" class="btn btn-neutral float-left" title="LocationAware"><span class="icon icon-circle-arrow-left"></span> Previous</a>
-        <a href="../Spatial/" class="btn btn-neutral float-right" title="Spatial">Next <span class="icon icon-circle-arrow-right"></span></a>
+        <a href="../../prb-math/PRBMathUD60x18Typed/" class="btn btn-neutral float-left" title="PRBMathUD60x18Typed"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+        <a href="../Trigonometry/" class="btn btn-neutral float-right" title="Trigonometry">Next <span class="icon icon-circle-arrow-right"></span></a>
     </div>
 
   <hr/>
@@ -158,10 +182,10 @@
   <span class="rst-current-version" data-toggle="rst-current-version">
     
     
-      <span><a href="../LocationAware/" style="color: #fcfcfc">&laquo; Previous</a></span>
+      <span><a href="../../prb-math/PRBMathUD60x18Typed/" style="color: #fcfcfc">&laquo; Previous</a></span>
     
     
-      <span><a href="../Spatial/" style="color: #fcfcfc">Next &raquo;</a></span>
+      <span><a href="../Trigonometry/" style="color: #fcfcfc">Next &raquo;</a></span>
     
   </span>
 </div>

@@ -9,6 +9,10 @@ const config: HardhatUserConfig = {
         // prb-math, spatial-sol
         version: "0.8.9",
       },
+      {
+        // solidity-trigonometry
+        version: "0.8.13",
+      }
     ],
   },
   docgen: {
