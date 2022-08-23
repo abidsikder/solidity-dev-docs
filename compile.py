@@ -7,7 +7,6 @@ import shutil
 contract_locations = {
     "prb-math" : "contracts",
     "spatial-sol" : "contracts",
-    "uniswap-v3-core" : "contracts",
     "solidity-trigonometry" : "src"
 }
 
@@ -21,11 +20,12 @@ for target in clean_before_run:
     if os.path.exists(target):
         shutil.rmtree(target)
 
+os.mkdir("docs")
 os.mkdir("contracts")
 
 contracts_path = os.path.abspath("contracts")
 
-print("#### Copying over contracts")
+print("#### Copying over contracts ####")
 for project in contract_locations:
     print("### " + project + " ###")
 
